@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 16, 2018 lúc 11:27 AM
--- Phiên bản máy phục vụ: 10.1.25-MariaDB
--- Phiên bản PHP: 5.6.31
+-- Thời gian đã tạo: Th3 16, 2018 lúc 07:05 CH
+-- Phiên bản máy phục vụ: 10.1.21-MariaDB
+-- Phiên bản PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -38,8 +36,7 @@ CREATE TABLE `bangnhap` (
   `hieuqua` int(10) NOT NULL,
   `khonghieuqua` int(10) NOT NULL,
   `dathen` int(10) NOT NULL,
-  `ghichu` text COLLATE utf8_unicode_ci NOT NULL,
-  `idn` int(10) NOT NULL
+  `ghichu` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -51,7 +48,8 @@ CREATE TABLE `bangnhap` (
 CREATE TABLE `masokham` (
   `id` int(10) NOT NULL,
   `msk` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `idbangnhap` int(10) NOT NULL
+  `idbangnhap` int(10) NOT NULL,
+  `idnguonden` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -97,9 +95,7 @@ CREATE TABLE `quyenhan` (
 -- Chỉ mục cho bảng `bangnhap`
 --
 ALTER TABLE `bangnhap`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `idn` (`idn`),
-  ADD KEY `idn_2` (`idn`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `masokham`
@@ -107,7 +103,9 @@ ALTER TABLE `bangnhap`
 ALTER TABLE `masokham`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idbangnhap` (`idbangnhap`),
-  ADD KEY `idbangnhap_2` (`idbangnhap`);
+  ADD UNIQUE KEY `idnguonden` (`idnguonden`),
+  ADD KEY `idbangnhap_2` (`idbangnhap`),
+  ADD KEY `idnguonden_2` (`idnguonden`);
 
 --
 -- Chỉ mục cho bảng `nguoidung`
@@ -163,23 +161,17 @@ ALTER TABLE `quyenhan`
 --
 
 --
--- Các ràng buộc cho bảng `bangnhap`
---
-ALTER TABLE `bangnhap`
-  ADD CONSTRAINT `bangnhap_ibfk_1` FOREIGN KEY (`idn`) REFERENCES `nguonden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Các ràng buộc cho bảng `masokham`
 --
 ALTER TABLE `masokham`
-  ADD CONSTRAINT `masokham_ibfk_1` FOREIGN KEY (`idbangnhap`) REFERENCES `bangnhap` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `masokham_ibfk_1` FOREIGN KEY (`idbangnhap`) REFERENCES `bangnhap` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `masokham_ibfk_2` FOREIGN KEY (`idnguonden`) REFERENCES `nguonden` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `nguoidung`
 --
 ALTER TABLE `nguoidung`
   ADD CONSTRAINT `nguoidung_ibfk_1` FOREIGN KEY (`idr`) REFERENCES `quyenhan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
