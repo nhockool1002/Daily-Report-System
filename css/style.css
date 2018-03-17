@@ -43,6 +43,7 @@ p.brandtit {
     border-left: 5px solid #3b5998;
     border-top: 1px solid #3b5998;
     border-bottom: 1px solid #3b5998;
+    text-transform: uppercase;
 }
 p.branddesc {
     display: block;
@@ -146,4 +147,57 @@ span.luuy {
     display: inline-block;
     float: right;
     font-size: 12px;
+}
+table.bangdulieu {
+    width: 97.1%;
+    margin: 0 auto;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+table.bangdulieu tr:first-child {
+    background-color: #3b5998;
+    color: white;
+    font-weight: bolder;
+}
+table.bangdulieu tr:first-child td {
+    padding: 10px;
+    background-color: #3b5998 !important;
+}
+table.bangdulieu tr td {
+    border: 2px solid #3b5998;
+    background-color: white;
+}
+table.bangdulieu tr td {
+    border: 2px solid #3b5998;
+    background-color: white;
+    font-size: 14px;
+    /* font-weight: bolder; */
+    text-align: center;
+}
+.sub-menu {
+    display: inline-flex;
+}
+
+.sub-menu .sub-child {
+    padding: 10px;
+    background-color: #3b5998;
+    margin-right: 5px;
+}
+.sub-menu .sub-child a {
+    color: white;
+}
+.sub-menu .sub-child a:hover {
+    text-decoration: none;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #3b5998;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    min-height: 50px;
+    height: auto;
+        line-height: 10px;
 }

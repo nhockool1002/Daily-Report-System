@@ -1,4 +1,8 @@
-<?php require_once('config/config.php') ;?>
+<?php 
+    ob_start();
+    session_start();
+    require_once('config/config.php') ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
         </div>
         <div class="line"></div>
         <div class="body">
-            <div class="container">
+            <div class="container<?php if(!isset($_GET['page'])){ echo "-fluid"; } ?>">
                 <div class="col-sm-12 bodycontent">
                     <div class="row">
                         <?php
@@ -21,8 +25,11 @@
                                 case "addform" :
                                     require_once("templates/addform.php");
                                     break;
+                                case "ndlist" :
+                                    require_once("templates/nguonden.php");
+                                    break;
                                 default :
-                                    echo "Không đúng cmnr";
+                                    echo "Đỉa chỉ này không có";
                             }
                         }
                         else require_once("templates/homepage.php");
@@ -34,5 +41,6 @@
     </div>
     
     <?php require_once('templates/script.php'); ?>
+    <?php require_once('templates/footer.php'); ?>
 </body>
 </html>

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 16, 2018 lúc 07:05 CH
--- Phiên bản máy phục vụ: 10.1.21-MariaDB
--- Phiên bản PHP: 5.6.30
+-- Thời gian đã tạo: Th3 17, 2018 lúc 11:26 AM
+-- Phiên bản máy phục vụ: 10.1.25-MariaDB
+-- Phiên bản PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,7 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bangnhap` (
   `id` int(10) NOT NULL,
-  `ngaythang` datetime NOT NULL,
+  `ngaythang` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `hienthi` int(11) NOT NULL,
   `tongchiphi` float NOT NULL,
   `sonhapchuot` int(10) NOT NULL,
   `uniquevisitor` int(10) NOT NULL,
@@ -36,8 +39,16 @@ CREATE TABLE `bangnhap` (
   `hieuqua` int(10) NOT NULL,
   `khonghieuqua` int(10) NOT NULL,
   `dathen` int(10) NOT NULL,
-  `ghichu` text COLLATE utf8_unicode_ci NOT NULL
+  `denkham` int(11) NOT NULL,
+  `ghichu` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `bangnhap`
+--
+
+INSERT INTO `bangnhap` (`id`, `ngaythang`, `hienthi`, `tongchiphi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`, `ghichu`) VALUES
+(4, '2018-03-16 17:00:00', 4129, 4123, 321321, 321, 1414, 13, 321, 512, 32141, NULL);
 
 -- --------------------------------------------------------
 
@@ -75,6 +86,15 @@ CREATE TABLE `nguonden` (
   `id` int(10) NOT NULL,
   `nguonden` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nguonden`
+--
+
+INSERT INTO `nguonden` (`id`, `nguonden`) VALUES
+(4, 'zalo'),
+(5, 'facebook'),
+(6, 'coccoc.com');
 
 -- --------------------------------------------------------
 
@@ -135,7 +155,7 @@ ALTER TABLE `quyenhan`
 -- AUTO_INCREMENT cho bảng `bangnhap`
 --
 ALTER TABLE `bangnhap`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT cho bảng `masokham`
 --
@@ -150,7 +170,7 @@ ALTER TABLE `nguoidung`
 -- AUTO_INCREMENT cho bảng `nguonden`
 --
 ALTER TABLE `nguonden`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT cho bảng `quyenhan`
 --
@@ -172,6 +192,7 @@ ALTER TABLE `masokham`
 --
 ALTER TABLE `nguoidung`
   ADD CONSTRAINT `nguoidung_ibfk_1` FOREIGN KEY (`idr`) REFERENCES `quyenhan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

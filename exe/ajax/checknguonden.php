@@ -1,0 +1,12 @@
+<?php
+require_once("../../config/config.php");
+if(isset($_GET['dulieu'])){
+    $dulieu = $_GET['dulieu'];
+    $sql = "SELECT * FROM nguonden where nguonden like '$dulieu'";
+    $rs = $conn->query($sql);
+    if($rs->num_rows > 0){
+        echo 1;
+    }
+    else echo 0;
+}
+?>
