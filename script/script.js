@@ -1,3 +1,20 @@
+// AJAX CHECKING MSK AVAILABLE
+$(document).ready(function(){
+    $(".onhapmasokham").keyup(function(){
+        var dulieu = $(".onhapmasokham").val();
+        $.get('exe/ajax/checkmasokham.php',{dulieu:dulieu},function(data){
+            if(data == 1){
+                $('.showerr').html('<br><div class="alert alert-danger"><b>Mã số khám này đã tồn tại, vui lòng nhập tên khác</div></b>');
+                $('.themnguonbut').prop("disabled",true);
+            }
+            else{
+                $('.showerr').html('<br><div class="alert alert-info"><b>Có thể tạo mã số khám này, nhấn nút Thêm để Thêm</div></b>');
+                $('.themnguonbut').prop("disabled",false);
+            }
+        });
+    });
+});
+
 // AJAX CHECKING NGUONDEN AVAILABLE
 $(document).ready(function(){
     $(".onhapnguon").keyup(function(){
@@ -57,6 +74,69 @@ $(document).ready(function(){
             if(data == 1){
             $('.showmessage').css({'margin-top':'-70px'});
             $('.showmessage').html('<br><div class="alert alert-warning"><b>Đã thay đổi tên nguồn đến, trang tải lại trong 2s</div></b>');
+            setTimeout(function(){
+                location.reload();
+            },2000);
+            }
+        });
+    });
+});
+
+
+// AJAX CHECKING MSK AND EDIT MSK
+$(document).ready(function(){
+    $('.suamasokham').click(function(){
+        var id = $(this).data('id');
+        $.get('exe/ajax/getmasokham.php',{id:id},function(data){
+            console.log(data);
+            var x = JSON.parse(data);
+            $('.osuate').val(x.msk);
+            $('.oid').val(x.id);
+            $('.onguondensl').val(x.idnguonden);
+            $('.obangnhapsl').val(x.idbangnhap);
+            $('.onguondensl').removeAttr('disabled');
+            $('.obangnhapsl').removeAttr('disabled');
+            $('.ktbutz').prop("disabled",false);
+            if($('.dybutz').prop("disabled",false)){
+                $('.dybutz').prop("disabled",true)
+            }
+            $('.showmessagez').css({'margin-top':'-20px'});
+            $('.showmessagez').html('');
+            });
+        });
+    $('.ktbutz').click(function(){
+        var name = $('.osuaten').val();
+        var id = $('.oid').val();
+        $.get('exe/ajax/checkmasokham2.php',{name:name,id:id},function(data){
+            if(data == 0){
+                $('.showmessagez').css({'margin-top':'-45px'});
+                $('.showmessagez').html('<br><div class="alert alert-success" style=""><b>Có thể dùng mã số khám này này</div></b>');
+                $('.dybutz').prop("disabled",false);
+                $('.osuate').focus(function(){
+                    $('.dybutz').prop("disabled",true);
+                });
+            }
+            if(data == 1){
+                $('.showmessagez').css({'margin-top':'-45px'});
+                $('.showmessagez').html('<br><div class="alert alert-danger"><b>Tên nguồn đến này đã tồn tại, vui lòng kiểm tra</div></b>');
+            }
+            if(data == 2){
+                $('.showmessagez').css({'margin-top':'-45px'});
+                $('.showmessagez').html('<br><div class="alert alert-info"><b>Tên mới trùng với tên cũ</div></b>');
+                $('.dybutz').prop("disabled",false);
+            }
+        });
+    });
+    $('.dybutz').click(function(){
+        var name = $('.osuate').val();
+        var id = $('.oid').val();
+        var idbangnhap = $('.obangnhapsl').val();
+        var idnguonden = $('.onguondensl').val();
+        console.log(idnguonden+"-----"+idbangnhap+"--------"+name+"--------"+id);
+        $.get('exe/ajax/updatemasokham.php',{id:id,name:name,idbangnhap:idbangnhap,idnguonden:idnguonden},function(data){
+            if(data == 1){
+            $('.showmessagez').css({'margin-top':'-20px'});
+            $('.showmessagez').html('<div class="alert alert-warning"><b>Đã thay đổi mã số khám, trang tải lại trong 2s</div></b>');
             setTimeout(function(){
                 location.reload();
             },2000);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 17, 2018 lúc 11:26 AM
+-- Thời gian đã tạo: Th3 18, 2018 lúc 11:24 AM
 -- Phiên bản máy phục vụ: 10.1.25-MariaDB
 -- Phiên bản PHP: 5.6.31
 
@@ -48,7 +48,8 @@ CREATE TABLE `bangnhap` (
 --
 
 INSERT INTO `bangnhap` (`id`, `ngaythang`, `hienthi`, `tongchiphi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`, `ghichu`) VALUES
-(4, '2018-03-16 17:00:00', 4129, 4123, 321321, 321, 1414, 13, 321, 512, 32141, NULL);
+(5, '2018-03-16 17:00:00', 32, 432141, 123, 3213, 32, 321, 32, 3213, 123, NULL),
+(6, '2018-03-17 17:00:00', 32, 321, 321, 43, 32, 32, 43, 321, 321, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,6 +63,18 @@ CREATE TABLE `masokham` (
   `idbangnhap` int(10) NOT NULL,
   `idnguonden` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `masokham`
+--
+
+INSERT INTO `masokham` (`id`, `msk`, `idbangnhap`, `idnguonden`) VALUES
+(4, 'PHATIT', 5, 7),
+(5, 'TUNGXL', 6, 8),
+(6, 'NGA', 6, 8),
+(7, 'NGAO', 6, 8),
+(8, 'VINHVL', 5, 7),
+(9, 'TAODIENMER', 6, 9);
 
 -- --------------------------------------------------------
 
@@ -92,9 +105,9 @@ CREATE TABLE `nguonden` (
 --
 
 INSERT INTO `nguonden` (`id`, `nguonden`) VALUES
-(4, 'zalo'),
-(5, 'facebook'),
-(6, 'coccoc.com');
+(7, 'zalo'),
+(8, 'facebook'),
+(9, 'coccoc.com');
 
 -- --------------------------------------------------------
 
@@ -122,10 +135,8 @@ ALTER TABLE `bangnhap`
 --
 ALTER TABLE `masokham`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `idbangnhap` (`idbangnhap`),
-  ADD UNIQUE KEY `idnguonden` (`idnguonden`),
-  ADD KEY `idbangnhap_2` (`idbangnhap`),
-  ADD KEY `idnguonden_2` (`idnguonden`);
+  ADD KEY `idbangnhap` (`idbangnhap`),
+  ADD KEY `idnguonden` (`idnguonden`);
 
 --
 -- Chỉ mục cho bảng `nguoidung`
@@ -155,12 +166,12 @@ ALTER TABLE `quyenhan`
 -- AUTO_INCREMENT cho bảng `bangnhap`
 --
 ALTER TABLE `bangnhap`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT cho bảng `masokham`
 --
 ALTER TABLE `masokham`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT cho bảng `nguoidung`
 --
@@ -170,7 +181,7 @@ ALTER TABLE `nguoidung`
 -- AUTO_INCREMENT cho bảng `nguonden`
 --
 ALTER TABLE `nguonden`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT cho bảng `quyenhan`
 --

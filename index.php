@@ -28,6 +28,9 @@
                                 case "ndlist" :
                                     require_once("templates/nguonden.php");
                                     break;
+                                case "msklist" :
+                                    require_once("templates/msk.php");
+                                    break;
                                 default :
                                     echo "Đỉa chỉ này không có";
                             }
