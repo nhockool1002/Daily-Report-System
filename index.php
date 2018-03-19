@@ -28,6 +28,9 @@
                                 case "ndlist" :
                                     require_once("templates/nguonden.php");
                                     break;
+                                case "editform" :
+                                    require_once("templates/editform.php");
+                                    break;
                                 case "msklist" :
                                     require_once("templates/msk.php");
                                     break;

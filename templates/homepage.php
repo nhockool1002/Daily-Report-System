@@ -6,64 +6,78 @@
         <br>
         <?php require_once('templates/stat.php'); ?>
         <div class="row">
-           <table class="bangdulieu">
-              <tr>
-                  <td>Ngày tháng</td>
-                  <td>Tổng chi phí</td>
-                  <td>Hiển thị</td>
-                  <td>Số nhấp chuột</td>
-                  <td>Unique Visitors</td>
-                  <td>Tổng số khách tư vấn</td>
-                  <td>Hiệu quả</td>
-                  <td>Không hiệu quả</td>
-                  <td>Đặt hẹn</td>
-                  <td>Đến khám</td>
-                  <td>Ghi chú</td>
-                  <td>DS mã số khám</td>
-                  <td>Bình quân giá click</td>
-                  <td>Bình quân giá chuyển hóa</td>
-                  <td>Bình quân giá tư vấn</td>
-                  <td>Giá thành lượt chát hiệu quả</td>
-                  <td>Bình quân giá đặt hẹn</td>
-                  <td>Giá thành đến khám</td>
-                  <td>Sửa</td>
-              </tr>          
-           
-            <?php
+          <br><br>
+          <?php if(isset($_SESSION['flash'])){ ?>
+        <div class="row">
+            <?php echo $_SESSION['flash'];
+                    unset($_SESSION['flash']);
+                                            
+                                             } ?>
+        </div>
+          <br>
+           <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb">
+             <thead>
+            <tr>
+                <th>Ngày tháng</th>
+                  <th>Tổng chi phí</th>
+                  <th>Hiển thị</th>
+                  <th>Số nhấp chuột</th>
+                  <th>Unique Visitors</th>
+                  <th>Tổng số khách tư vấn</th>
+                  <th>Hiệu quả</th>
+                  <th>Không hiệu quả</th>
+                  <th>Đặt hẹn</th>
+                  <th>Đến khám</th>
+                  <th>DS mã số khám</th>
+                  <th>Ghi chú</th>
+                  <th>Bình quân giá click</th>
+                  <th>Bình quân giá chuyển hóa</th>
+                  <th>Bình quân giá tư vấn</th>
+                  <th>Giá thành lượt chát hiệu quả</th>
+                  <th>Bình quân giá đặt hẹn</th>
+                  <th>Giá thành đến khám</th>
+                  <th>Sửa</th>
+            </tr>
+            </thead>       
+               <tbody>
+               <?php
             $sql = "SELECT * FROM bangnhap ORDER BY id DESC";
             if ($result = $conn->query($sql)) {
+                $sum = 0;
                 while ($row = $result->fetch_assoc()) {
                     $date=date_create($row['ngaythang']);
                     $jw = date_format($date,"d/m/Y");
+                    $ft = date_format($date,"Y-m-d");
+                    $sum = $sum+$row['tongchiphi'];
                     ?>
-                    <tr>
+            <tr>
                     <td><?php echo $jw; ?></td>
-                  <td><?php echo $row['tongchiphi']; ?></td>
-                  <td><?php echo $row['hienthi']; ?></td>
-                  <td><?php echo $row['sonhapchuot']; ?></td>
-                  <td><?php echo $row['uniquevisitor']; ?></td>
-                  <td><?php echo $row['tongsokhachtuvan']; ?></td>
-                  <td><?php echo $row['hieuqua']; ?></td>
-                  <td><?php echo $row['khonghieuqua']; ?></td>
-                  <td><?php echo $row['dathen']; ?></td>
-                  <td><?php echo $row['denkham']; ?></td>
-                  <td><?php echo $row['ghichu']; ?></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
+                  <td><?php echo number_format($row['tongchiphi']); ?></td>
+                  <td><?php echo number_format($row['hienthi']); ?></td>
+                  <td><?php echo number_format($row['sonhapchuot']); ?></td>
+                  <td><?php echo number_format($row['uniquevisitor']); ?></td>
+                  <td><?php echo number_format($row['tongsokhachtuvan']); ?></td>
+                  <td><?php echo number_format($row['hieuqua']); ?></td>
+                  <td><?php echo number_format($row['khonghieuqua']); ?></td>
+                  <td><?php echo number_format($row['dathen']); ?></td>
+                  <td><?php echo number_format($row['denkham']); ?></td>
+                   <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>"><b>[XEM]</b></a></td>
+                   <td><?php echo $row['ghichu']; ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['uniquevisitor'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['hieuqua'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
+                   <td><?php if($row['denkham'] == 0){ } else echo number_format(round($row['tongchiphi']/$row['denkham'])); ?></td>
+                   <td><a href="index.php?page=editform&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
-                    <?php
-                }
-                $result->free();
-                $conn->close();
-            }
-            ?>
-            </table>
+            
+                           <?php } ?>
+                           
+            <?php }
+            $result->free(); $conn->close(); ?>
+            </tbody>
+    </table>
         </div>
     </div>
 </div>

@@ -56,6 +56,9 @@ $(document).ready(function(){
                 $('.showmessage').css({'margin-top':'-70px'});
                 $('.showmessage').html('<br><div class="alert alert-success"><b>Có thể dùng tên nguồn đến này</div></b>');
                 $('.dybut').prop("disabled",false);
+                $('.osuaten').focus(function(){
+                    $('.dybut').prop("disabled",true);
+                });
             }
             if(data == 1){
                 $('.showmessage').css({'margin-top':'-70px'});
@@ -105,7 +108,7 @@ $(document).ready(function(){
             });
         });
     $('.ktbutz').click(function(){
-        var name = $('.osuaten').val();
+        var name = $('.osuate').val();
         var id = $('.oid').val();
         $.get('exe/ajax/checkmasokham2.php',{name:name,id:id},function(data){
             if(data == 0){
@@ -143,4 +146,54 @@ $(document).ready(function(){
             }
         });
     });
+});
+
+
+// DATATABLE
+jQuery.fn.dataTable.Api.register( 'sum()', function ( ) {
+    return this.flatten().reduce( function ( a, b ) {
+        if ( typeof a === 'string' ) {
+            a = a.replace(/[^\d.-]/g, '') * 1;
+        }
+        if ( typeof b === 'string' ) {
+            b = b.replace(/[^\d.-]/g, '') * 1;
+        }
+ 
+        return a + b;
+    }, 0 );
+} );
+
+$(document).ready(function() {
+    $('#kooltable').DataTable({
+    drawCallback: function () {
+      var api = this.api();
+      $( api.table().footer() ).html(
+        api.column( 4, {page:'current'} ).data().sum()
+      );
+    }
+  });
+
+} );
+
+
+
+
+// GET URL ATTRIBUTR
+$(document).ready(function(){
+    var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+var day = getUrlParameter('day');
+
 });

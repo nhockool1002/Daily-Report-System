@@ -2,13 +2,15 @@
     <div class="col-sm-6">
         <br>
         <div class="row">
-           <table class="bangdulieu">
+           <table class="display" id="kooltable" width="100%">
+             <thead>
               <tr>
-                  <td>ID</td>
-                  <td>Tên</td>
-                  <td>Sửa</td>
+                  <th>ID</th>
+                  <th>Tên</th>
+                  <th>Sửa</th>
               </tr>          
-           
+            </thead>
+            <tbody>
             <?php
             $sql = "SELECT * FROM nguonden ORDER BY id DESC";
             if ($result = $conn->query($sql)) {
@@ -25,6 +27,7 @@
                 $conn->close();
             }
             ?>
+            </tbody>
             </table>
         </div>
     </div>

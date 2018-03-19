@@ -23,6 +23,9 @@
                     case "tkmsk" :
                         require_once("templates/tkmsk.php");
                         break;
+                    case "filter" :
+                        require_once("templates/filtermsk.php");
+                        break;
                     default :
                         echo "Đi sai địa chỉ rồi";
                 }

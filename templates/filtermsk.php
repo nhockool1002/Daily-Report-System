@@ -13,10 +13,17 @@
            </thead>
            <tbody>
             <?php
+            if(!isset($_GET['day'])){
             $sql = "SELECT masokham.id,msk,nguonden,bangnhap.ngaythang FROM `masokham` INNER JOIN `bangnhap` ON masokham.idbangnhap = bangnhap.id INNER JOIN `nguonden` ON masokham.idnguonden = nguonden.id ORDER BY bangnhap.ngaythang DESC";
+            }
+            else{
+                $day = $_GET['day'];
+                echo $day;
+               $sql = "SELECT masokham.id,msk,nguonden,bangnhap.ngaythang FROM `masokham` INNER JOIN `bangnhap` ON masokham.idbangnhap = bangnhap.id INNER JOIN `nguonden` ON masokham.idnguonden = nguonden.id WHERE bangnhap.ngaythang LIKE '$day%' ORDER BY bangnhap.ngaythang DESC"; 
+            }
             if ($result = $conn->query($sql)) {
                 while ($row = $result->fetch_assoc()) {
-                    $date=date_create($row['ngaythang']);
+                $date=date_create($row['ngaythang']);
                 $jw = date_format($date,"d/m/Y");
                     ?>
                     <tr>
