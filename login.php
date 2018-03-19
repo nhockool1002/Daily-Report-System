@@ -1,10 +1,14 @@
+<?php
+session_start();
+    ob_start();
+?>
 <html>
     <head>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="application/javascript"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js" type="application/javascript"></script>
         <style>
         html { 
-  background: url(http://cdn.magdeleine.co/wp-content/uploads/2014/05/3jPYgeVCTWCMqjtb7Dqi_IMG_8251-1400x933.jpg) no-repeat center center fixed; 
+  background: url(img/login-bg.jpeg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -238,6 +242,34 @@ a:hover{
     text-align: center;
     margin: 0 auto;
 }
+.err {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    background-color: #00000096;
+    height: 50px;
+    line-height: 50px;
+}
+            .divodangnhap {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+            button.btn.btn-success.btn-xs.nutlogin {
+    width: 140px;
+    background-color: #379437;
+    border: 0;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 10px;
+}
+            button.btn.btn-success.btn-xs.nutlogin:hover {
+    background-color: #085808;
+    cursor: pointer;
+}
         </style>
     </head>
     <body>
@@ -261,15 +293,17 @@ a:hover{
     <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
   </span>
 
-  <form>
-    <input type="text" name="_UERSL)" placeholder="Username">
-    <input type="password" name="_PDSOP" placeholder="Password">
-    <input type="text" name="captcha" placeholder="Captcha">
+  <form method="post" action="exe/exelogin.php">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="text" name="captcha" placeholder="Captcha" required>
     <div class="cc">
       <p><?php $captcha = generateRandomString(); echo $captcha; ?></p>
     </div>
     <input type="hidden" name="check" value="<?php echo $captcha; ?>">
-    <a href="#">Log in</a>
+    <div class="divodangnhap">
+    <button type="submit" class="btn btn-success btn-xs nutlogin" name="submit">Login</button>
+    </div>
     <div id="remember-container">
       <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
       <span id="remember">Remember me</span>
@@ -277,6 +311,14 @@ a:hover{
     </div>
 </form>
 </div>
+    <br>
+    <?php 
+    if(isset($_SESSION['flash'])){
+        echo $_SESSION['flash']; 
+        unset($_SESSION['flash']);
+    }
+    ?>
+
 
 <!-- Forgotten Password Container -->
 <div id="forgotten-container">
