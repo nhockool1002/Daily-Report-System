@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 18, 2018 lúc 11:24 AM
+-- Thời gian đã tạo: Th3 20, 2018 lúc 11:31 AM
 -- Phiên bản máy phục vụ: 10.1.25-MariaDB
 -- Phiên bản PHP: 5.6.31
 
@@ -48,8 +48,60 @@ CREATE TABLE `bangnhap` (
 --
 
 INSERT INTO `bangnhap` (`id`, `ngaythang`, `hienthi`, `tongchiphi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`, `ghichu`) VALUES
-(5, '2018-03-16 17:00:00', 32, 432141, 123, 3213, 32, 321, 32, 3213, 123, NULL),
-(6, '2018-03-17 17:00:00', 32, 321, 321, 43, 32, 32, 43, 321, 321, NULL);
+(5, '2018-03-15 17:00:00', 30016, 77591200, 3777, 1124, 240, 42, 111, 41, 0, NULL),
+(6, '2018-03-18 08:46:47', 32, 321, 321, 43251, 32, 32, 43, 321, 321, NULL),
+(7, '2018-03-16 17:00:00', 53, 34, 34, 533, 3, 332, 4, 43, 5, NULL),
+(8, '2018-03-19 17:00:00', 3232, 65, 2, 75, 234, 54, 321, 34, 54, NULL),
+(9, '2018-03-18 17:00:00', 41, 341, 23, 34, 321, 43, 321, 41, 41, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bangnhapfb`
+--
+
+CREATE TABLE `bangnhapfb` (
+  `id` int(10) NOT NULL,
+  `ngaythang` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tongchiphi` float NOT NULL,
+  `hienthi` int(10) NOT NULL,
+  `sonhapchuot` int(10) NOT NULL,
+  `tongsokhachtuvan` int(10) NOT NULL,
+  `hieuqua` int(10) NOT NULL,
+  `khonghieuqua` int(10) NOT NULL,
+  `dathen` int(10) NOT NULL,
+  `giathanh` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `bangnhapfb`
+--
+
+INSERT INTO `bangnhapfb` (`id`, `ngaythang`, `tongchiphi`, `hienthi`, `sonhapchuot`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `giathanh`) VALUES
+(1, '2018-03-19 17:00:00', 12, 22, 22, 22, 51, 22, 75, 54),
+(2, '2018-03-17 17:00:00', 99, 99, 99, 99, 99, 99, 99, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bangnhapzl`
+--
+
+CREATE TABLE `bangnhapzl` (
+  `id` int(10) NOT NULL,
+  `ngaythang` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tongsokhachtuvan` int(10) NOT NULL,
+  `hieuqua` int(10) NOT NULL,
+  `khonghieuqua` int(10) NOT NULL,
+  `dathen` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `bangnhapzl`
+--
+
+INSERT INTO `bangnhapzl` (`id`, `ngaythang`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`) VALUES
+(1, '2018-03-19 17:00:00', 99, 98, 99, 99);
 
 -- --------------------------------------------------------
 
@@ -73,7 +125,7 @@ INSERT INTO `masokham` (`id`, `msk`, `idbangnhap`, `idnguonden`) VALUES
 (5, 'TUNGXL', 6, 8),
 (6, 'NGA', 6, 8),
 (7, 'NGAO', 6, 8),
-(8, 'VINHVL', 5, 7),
+(8, 'VINHVLK', 5, 7),
 (9, 'TAODIENMER', 6, 9);
 
 -- --------------------------------------------------------
@@ -88,6 +140,14 @@ CREATE TABLE `nguoidung` (
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `idr` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nguoidung`
+--
+
+INSERT INTO `nguoidung` (`id`, `username`, `password`, `idr`) VALUES
+(4, 'nhockool1002', '6ac66b5cb3d198e4587a747c13ac3c9d', 1),
+(5, 'thanhvien1', '25f9e794323b453885f5181f1b624d0b', 1);
 
 -- --------------------------------------------------------
 
@@ -121,6 +181,13 @@ CREATE TABLE `quyenhan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Đang đổ dữ liệu cho bảng `quyenhan`
+--
+
+INSERT INTO `quyenhan` (`id`, `quyenhan`) VALUES
+(1, 'Administrators');
+
+--
 -- Chỉ mục cho các bảng đã đổ
 --
 
@@ -128,6 +195,18 @@ CREATE TABLE `quyenhan` (
 -- Chỉ mục cho bảng `bangnhap`
 --
 ALTER TABLE `bangnhap`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `bangnhapfb`
+--
+ALTER TABLE `bangnhapfb`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `bangnhapzl`
+--
+ALTER TABLE `bangnhapzl`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -143,8 +222,7 @@ ALTER TABLE `masokham`
 --
 ALTER TABLE `nguoidung`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `idr` (`idr`),
-  ADD KEY `idr_2` (`idr`);
+  ADD KEY `idr` (`idr`);
 
 --
 -- Chỉ mục cho bảng `nguonden`
@@ -166,7 +244,17 @@ ALTER TABLE `quyenhan`
 -- AUTO_INCREMENT cho bảng `bangnhap`
 --
 ALTER TABLE `bangnhap`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT cho bảng `bangnhapfb`
+--
+ALTER TABLE `bangnhapfb`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT cho bảng `bangnhapzl`
+--
+ALTER TABLE `bangnhapzl`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT cho bảng `masokham`
 --
@@ -176,7 +264,7 @@ ALTER TABLE `masokham`
 -- AUTO_INCREMENT cho bảng `nguoidung`
 --
 ALTER TABLE `nguoidung`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `nguonden`
 --
@@ -186,7 +274,7 @@ ALTER TABLE `nguonden`
 -- AUTO_INCREMENT cho bảng `quyenhan`
 --
 ALTER TABLE `quyenhan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Các ràng buộc cho các bảng đã đổ
 --

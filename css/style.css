@@ -89,6 +89,7 @@ p.branddesc {
     padding-bottom: 20px;
     padding-right: 20px;
     margin-top: 2%;
+    margin-bottom:500px;
 }
 .h1title {
     font-weight: bolder;
@@ -200,4 +201,11 @@ table.bangdulieu tr td {
     min-height: 50px;
     height: auto;
         line-height: 10px;
+}
+p.namemonth {
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bolder;
+    color: red;
+    font-size: 30px;
 }

@@ -4,6 +4,7 @@ session_start();
 ?>
 <html>
     <head>
+       <title>Đăng nhập hệ thống - Report System :: Backend</title>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="application/javascript"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js" type="application/javascript"></script>
         <style>
@@ -273,6 +274,12 @@ a:hover{
         </style>
     </head>
     <body>
+    <?php if(isset($_SESSION['kanguser'])){
+    header('Location:index.php');
+    die;
+}
+    ?>
+}
 <?php
     function generateRandomString($length = 7) {
     $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';

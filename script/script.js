@@ -165,13 +165,11 @@ jQuery.fn.dataTable.Api.register( 'sum()', function ( ) {
 
 $(document).ready(function() {
     $('#kooltable').DataTable({
-    drawCallback: function () {
-      var api = this.api();
-      $( api.table().footer() ).html(
-        api.column( 4, {page:'current'} ).data().sum()
-      );
-    }
-  });
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
 
 } );
 
