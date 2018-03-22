@@ -5,9 +5,11 @@ $date = date('Y-m-d');
 <div class="container">
     <div class="col-sm-12">
         <div class="row">
-            <a href="index.php?page=addform" class="btn btn-info btn-xs">Nhập dữ liệu Adword</a>
-            <a href="index.php?page=addform&form=formfb" class="btn btn-info btn-xs">Nhập dữ liệu Facebook</a>
-            <a href="index.php?page=addform&form=formzl" class="btn btn-info btn-xs">Nhập dữ liệu Zalo</a>
+            <a href="index.php?page=addform" class="btn btn-info btn-sm">Nhập dữ liệu Adword</a>
+            <a href="index.php?page=addform&form=formfb" class="btn btn-info btn-sm">Nhập dữ liệu Facebook</a>
+            <a href="index.php?page=addform&form=formzl" class="btn btn-info btn-sm">Nhập dữ liệu Zalo</a>
+            <a href="index.php?page=addform&form=formdt" class="btn btn-info btn-sm">Nhập dữ liệu Điện thoại</a>
+            <a href="index.php?page=addform&form=formcc" class="btn btn-info btn-sm">Nhập dữ liệu Coccoc.com</a>
         </div>
     </div>
 </div>
@@ -24,6 +26,12 @@ $date = date('Y-m-d');
                         break;
                     case "formzl" :
                         require_once('templates/formzl.php');
+                        break;
+                    case "formdt" :
+                        require_once('templates/formdt.php');
+                        break;
+                    case "formcc" :
+                        require_once('templates/formcc.php');
                         break;
                     default :
                         echo "Đi sai đường rồi";

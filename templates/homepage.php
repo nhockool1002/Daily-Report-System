@@ -1,4 +1,4 @@
-<div class="container-fluid">
+   <div class="container-fluid">
     <div class="col-sm-12">
     <?php 
         if(isset($_GET['view'])){
@@ -9,6 +9,12 @@
                     break;
                 case "zalo" :
                     require_once('templates/homezalo.php');
+                    break;
+                case "dienthoai" :
+                    require_once('templates/homedienthoai.php');
+                    break;
+                case "coccoc" :
+                    require_once('templates/homecoccoc.php');
                     break;
                 default :
                     echo "Sai đường";

@@ -45,7 +45,23 @@
         </div>
         <div class="line"></div>
         <div class="body">
-            <div class="container<?php if(!isset($_GET['page']) || $_GET['page'] == 'olddata'){ echo "-fluid"; } ?>">
+          <?php if(!isset($_GET['page']) || isset($_GET['view'])){ ?>
+          <br>
+           <div class="container-fluid" style="display:block;text-align:center;">
+            <div class="row">
+                <div class="col-sm-12">
+                <div class="row">
+                    <a class="btn btn-danger btn-sm" href="index.php">Xem dữ liệu Adword</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=facebook">Xem dữ liệu Facebook</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=zalo">Xem dữ liệu Zalo</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=dienthoai">Xem dữ liệu Điện thoại</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=coccoc">Xem dữ liệu Coccoc.com</a>
+                </div>
+               </div>
+            </div>
+            </div>
+           <?php } ?>
+            <div class="container<?php if(!isset($_GET['page']) || $_GET['page'] == 'olddata' || $_GET['page'] == 'olddatacc'){ echo "-fluid"; } ?>">
                 <div class="col-sm-12 bodycontent">
                     <div class="row">
                         <?php
@@ -67,6 +83,12 @@
                                 case "editformzl" :
                                     require_once("templates/editformzl.php");
                                     break;
+                                case "editformdt" :
+                                    require_once("templates/editformdt.php");
+                                    break;
+                                case "editformcc" :
+                                    require_once("templates/editformcc.php");
+                                    break;
                                 case "msklist" :
                                     require_once("templates/msk.php");
                                     break;
@@ -78,6 +100,12 @@
                                     break;
                                 case "olddatal" :
                                     require_once("templates/olddatal.php");
+                                    break;
+                                case "olddatadt" :
+                                    require_once("templates/olddatadt.php");
+                                    break;
+                                case "olddatacc" :
+                                    require_once("templates/olddatacc.php");
                                     break;
                                 default :
                                     echo "Đỉa chỉ này không có";

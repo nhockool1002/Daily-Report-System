@@ -1,5 +1,5 @@
         <div class="row">
-        <div class="h1title">Dữ liệu Adword</div>
+        <div class="h1title">Dữ liệu COCCOC.COM</div>
         </div>
         <br>
         <?php require_once('templates/stat.php'); ?>
@@ -15,7 +15,7 @@
          <?php $getthang = date('m-Y');
             $getname = date('Y');
             echo "<p class='namemonth'>Dữ liệu tháng ".$getthang."</p>"; ?>
-            <form method="post" action="index.php?page=olddata">
+            <form method="post" action="index.php?page=olddatacc">
             <p>Xem dữ liệu khác</p>
             <select class="chonthang" name="chonthang">
                 <option value='01'>Tháng 1</option>
@@ -52,7 +52,6 @@
                   <th>Hiệu quả</th>
                   <th>Không hiệu quả</th>
                   <th>Đặt hẹn</th>
-                  <th>Đến khám</th>
                   <th>DS mã số khám</th>
                   <th>Ghi chú</th>
                   <th>Bình quân giá click</th>
@@ -67,7 +66,7 @@
                <tbody>
                <?php
                    $dt = date('Y-m');
-            $sql = "SELECT * FROM bangnhap WHERE ngaythang LIKE '%$dt%' ORDER BY id DESC";
+            $sql = "SELECT * FROM bangnhapcc WHERE ngaythang LIKE '%$dt%' ORDER BY id DESC";
             if ($result = $conn->query($sql)) {
                 $sum = 0;
                 while ($row = $result->fetch_assoc()) {
@@ -86,16 +85,15 @@
                   <td><?php echo number_format($row['hieuqua']); ?></td>
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
                   <td><?php echo number_format($row['dathen']); ?></td>
-                  <td><?php echo number_format($row['denkham']); ?></td>
-                   <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>"><b>[XEM]</b></a></td>
+                   <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>&zone=coccoc.com"><b>[XEM]</b></a></td>
                    <td><?php echo $row['ghichu']; ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['uniquevisitor'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['hieuqua'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
-                   <td><?php if($row['denkham'] == 0){ } else echo number_format(round($row['tongchiphi']/$row['denkham'])); ?></td>
-                   <td><a href="index.php?page=editform&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
+                   <td></td>
+                   <td><a href="index.php?page=editformcc&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
             
                            <?php } ?>

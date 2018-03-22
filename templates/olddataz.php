@@ -22,10 +22,11 @@
                 <option value='12'>Tháng 12</option>
             </select>
             <select class="chonnam" name="chonnam">
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
+                <?php 
+                $getname = date('Y');
+                for($i=2016;$i<=$getname;$i++){ ?>
+                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php } ?>
             </select>
             <button type="submit" class="btn btn-info btn-xs" name="submit">Xem danh sách</button>
             </form>

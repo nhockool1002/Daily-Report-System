@@ -1,5 +1,5 @@
         <div class="row">
-        <div class="h1title">Dữ liệu Zalo</div>
+        <div class="h1title">Dữ liệu Điện thoại</div>
         </div>
         <br>
         <?php require_once('templates/stat.php'); ?>
@@ -12,32 +12,7 @@
                                             
                                              } ?>
         </div>
-         <?php $getthang = date('m-Y');
-            $getname = date('Y');
-            echo "<p class='namemonth'>Dữ liệu tháng ".$getthang."</p>"; ?>
-            <form method="post" action="index.php?page=olddatal">
-            <p>Xem dữ liệu khác</p>
-            <select class="chonthang" name="chonthang">
-                <option value='01'>Tháng 1</option>
-                <option value='02'>Tháng 2</option>
-                <option value='03'>Tháng 3</option>
-                <option value='04'>Tháng 4</option>
-                <option value='05'>Tháng 5</option>
-                <option value='06'>Tháng 6</option>
-                <option value='07'>Tháng 7</option>
-                <option value='08'>Tháng 8</option>
-                <option value='09'>Tháng 9</option>
-                <option value='10'>Tháng 10</option>
-                <option value='11'>Tháng 11</option>
-                <option value='12'>Tháng 12</option>
-            </select>
-            <select class="chonnam" name="chonnam">
-                <?php for($i=2016;$i<=$getname;$i++){ ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php } ?>
-            </select>
-            <button type="submit" class="btn btn-info btn-xs" name="submit">Xem danh sách</button>
-            </form>
+
             <hr>
           <br>
            <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb">
@@ -48,14 +23,16 @@
                   <th>Hiệu quả</th>
                   <th>Không hiệu quả</th>
                   <th>Đặt hẹn</th>
-                  <th>DS Mã SK</th>
+                  <th>Adwords</th>
+                  <th>Facebook</th>
+                  <th>SEO</th>
                   <th>Sửa</th>
             </tr>
             </thead>       
                <tbody>
                <?php
                    $dt = date('Y-m');
-            $sql = "SELECT * FROM bangnhapzl WHERE ngaythang LIKE '%$dt%' ORDER BY id DESC";
+            $sql = "SELECT * FROM bangnhapdt WHERE ngaythang LIKE '%$dt%' ORDER BY id DESC";
             if ($result = $conn->query($sql)) {
                 $sum = 0;
                 while ($row = $result->fetch_assoc()) {
@@ -69,8 +46,10 @@
                   <td><?php echo number_format($row['hieuqua']); ?></td>
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
                   <td><?php echo number_format($row['dathen']); ?></td>
-                   <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>&zone=zalo"><b>[XEM]</b></a></td>
-                   <td><a href="index.php?page=editformzl&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
+                  <td><?php echo number_format($row['adwords']); ?></td>
+                  <td><?php echo number_format($row['facebook']); ?></td>
+                  <td><?php echo number_format($row['seo']); ?></td>
+                   <td><a href="index.php?page=editformdt&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
             
                            <?php } ?>

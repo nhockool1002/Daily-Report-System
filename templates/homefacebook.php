@@ -13,6 +13,7 @@
                                              } ?>
         </div>
          <?php $getthang = date('m-Y');
+            $getname = date('Y');
             echo "<p class='namemonth'>Dữ liệu tháng ".$getthang."</p>"; ?>
             <form method="post" action="index.php?page=olddataz">
             <p>Xem dữ liệu khác</p>
@@ -31,10 +32,9 @@
                 <option value='12'>Tháng 12</option>
             </select>
             <select class="chonnam" name="chonnam">
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
+                 <?php for($i=2016;$i<=$getname;$i++){ ?>
+                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php } ?>
             </select>
             <button type="submit" class="btn btn-info btn-xs" name="submit">Xem danh sách</button>
             </form>
@@ -51,6 +51,7 @@
                   <th>Hiệu quả</th>
                   <th>Không hiệu quả</th>
                   <th>Đặt hẹn</th>
+                  <th>DS Mã SK</th>
                   <th>Giá thành</th>
                   <th>Sửa</th>
             </tr>
@@ -76,6 +77,7 @@
                   <td><?php echo number_format($row['hieuqua']); ?></td>
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
                   <td><?php echo number_format($row['dathen']); ?></td>
+                   <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>&zone=facebook"><b>[XEM]</b></a></td>
                    <td><?php echo number_format($row['giathanh']); ?></td>
                    <td><a href="index.php?page=editformfb&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>

@@ -17,9 +17,15 @@
             $sql = "SELECT masokham.id,msk,nguonden,bangnhap.ngaythang FROM `masokham` INNER JOIN `bangnhap` ON masokham.idbangnhap = bangnhap.id INNER JOIN `nguonden` ON masokham.idnguonden = nguonden.id ORDER BY bangnhap.ngaythang DESC";
             }
             else{
+                if(isset($_GET['zone'])){
+                    $zone = $_GET['zone'];
+                    $day = $_GET['day'];
+                    $sql = "SELECT masokham.id, bangnhap.ngaythang,msk,nguonden FROM masokham JOIN bangnhapdt INNER JOIN bangnhap ON masokham.idbangnhap = bangnhap.id INNER JOIN nguonden ON masokham.idnguonden = nguonden.id WHERE bangnhap.ngaythang LIKE '$day%' AND nguonden.nguonden = '$zone'";
+                }
+                else{
                 $day = $_GET['day'];
-                echo $day;
                $sql = "SELECT masokham.id,msk,nguonden,bangnhap.ngaythang FROM `masokham` INNER JOIN `bangnhap` ON masokham.idbangnhap = bangnhap.id INNER JOIN `nguonden` ON masokham.idnguonden = nguonden.id WHERE bangnhap.ngaythang LIKE '$day%' ORDER BY bangnhap.ngaythang DESC"; 
+                    }
             }
             if ($result = $conn->query($sql)) {
                 while ($row = $result->fetch_assoc()) {
@@ -30,7 +36,7 @@
                   <td><?php echo $jw; ?></td>
                   <td><?php echo $row['msk']; ?></td>
                   <td><?php echo $row['nguonden']; ?></td>
-                  <td class="suamasokham" data-id="<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></td>
+                  <td class="suamasokham" data-id="<?php if(isset($_GET['zone'])){ echo $row['id']; } else { echo $row['id']; } ?>"><i class="fa fa-pencil-square-o"></i></td>
                     </tr>
                     <?php
                 }
