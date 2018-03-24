@@ -52,6 +52,7 @@
                 <div class="col-sm-12">
                 <div class="row">
                     <a class="btn btn-danger btn-sm" href="index.php">Xem dữ liệu Adword</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=gdn">Xem dữ liệu GDN</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=facebook">Xem dữ liệu Facebook</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=zalo">Xem dữ liệu Zalo</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=dienthoai">Xem dữ liệu Điện thoại</a>
@@ -61,7 +62,7 @@
             </div>
             </div>
            <?php } ?>
-            <div class="container<?php if(!isset($_GET['page']) || $_GET['page'] == 'olddata' || $_GET['page'] == 'olddatacc'){ echo "-fluid"; } ?>">
+            <div class="container<?php if(!isset($_GET['page']) || $_GET['page'] == 'olddata' || $_GET['page'] == 'olddatacc' || $_GET['page'] == 'olddatagdn'){ echo "-fluid"; } ?>">
                 <div class="col-sm-12 bodycontent">
                     <div class="row">
                         <?php
@@ -89,6 +90,9 @@
                                 case "editformcc" :
                                     require_once("templates/editformcc.php");
                                     break;
+                                case "editformgdn" :
+                                    require_once("templates/editformgdn.php");
+                                    break;
                                 case "msklist" :
                                     require_once("templates/msk.php");
                                     break;
@@ -106,6 +110,9 @@
                                     break;
                                 case "olddatacc" :
                                     require_once("templates/olddatacc.php");
+                                    break;
+                                case "olddatagdn" :
+                                    require_once("templates/olddatagdn.php");
                                     break;
                                 default :
                                     echo "Đỉa chỉ này không có";

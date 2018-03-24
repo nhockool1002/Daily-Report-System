@@ -6,6 +6,7 @@ $date = date('Y-m-d');
     <div class="col-sm-12">
         <div class="row">
             <a href="index.php?page=addform" class="btn btn-info btn-sm">Nhập dữ liệu Adword</a>
+            <a href="index.php?page=addform&form=formgdn" class="btn btn-info btn-sm">Nhập dữ liệu GDN</a>
             <a href="index.php?page=addform&form=formfb" class="btn btn-info btn-sm">Nhập dữ liệu Facebook</a>
             <a href="index.php?page=addform&form=formzl" class="btn btn-info btn-sm">Nhập dữ liệu Zalo</a>
             <a href="index.php?page=addform&form=formdt" class="btn btn-info btn-sm">Nhập dữ liệu Điện thoại</a>
@@ -32,6 +33,9 @@ $date = date('Y-m-d');
                         break;
                     case "formcc" :
                         require_once('templates/formcc.php');
+                        break;
+                    case "formgdn" :
+                        require_once('templates/formgdn.php');
                         break;
                     default :
                         echo "Đi sai đường rồi";

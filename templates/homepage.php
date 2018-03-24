@@ -16,6 +16,9 @@
                 case "coccoc" :
                     require_once('templates/homecoccoc.php');
                     break;
+                case "gdn" :
+                    require_once('templates/homegdn.php');
+                    break;
                 default :
                     echo "Sai đường";
             }
