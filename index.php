@@ -41,7 +41,9 @@
     <?php } ?>
     <div class="wrapper">
         <div class="header">
-            <?php require_once('templates/top.php'); ?>
+            <?php require_once('templates/top.php'); 
+                $array_ten = array("Thuy","Diem","Loan","Tran");
+            ?>
         </div>
         <div class="line"></div>
         <div class="body">
@@ -57,6 +59,7 @@
                     <a class="btn btn-danger btn-sm" href="index.php?view=zalo">Xem dữ liệu Zalo</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=dienthoai">Xem dữ liệu Điện thoại</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=coccoc">Xem dữ liệu Coccoc.com</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=seo">Xem dữ liệu SEO</a>
                 </div>
                </div>
             </div>

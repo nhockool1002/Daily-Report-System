@@ -26,7 +26,7 @@
             <input type="number" name="khonghieuqua" class="form-control" placeholder="Nhập số không hiệu quả" required>
             <br>
             <label>Đến khám :</label><span class="luuy">(Thông số thể hiện số lần đặt hẹn)</span>
-            <input type="number" name="denkham" class="form-control" placeholder="Nhập số lần đến khám" required>
+            <input type="number" name="denkham" class="form-control" placeholder="Nhập số lần đến khám" >
             </div>
             <div class="col-sm-4">
             <label>Tổng chi phí :</label><span class="luuy">(Thông số thể hiển tổng chi phí)</span>

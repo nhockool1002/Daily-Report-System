@@ -17,12 +17,21 @@
         $jw = date_format($dt,"Y-m-d");
         $count = "select * from bangnhap where ngaythang like '$jw%'";
         $dem = $conn->query($count);
-        if(isset($_POST['ghichu'])){
+        if($_POST['ghichu'] != ""){
             $ghichu = $_POST['ghichu'];
-            $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham','$ghichu')";
+            if($denkham == ""){
+                $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$ghichu')";
+            }else{
+            $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham','$ghichu')";}
         }
-        $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`,`denkham`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham')";
-           
+        else{
+        if($denkham == ""){
+                $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen')";
+            }
+            else{
+            $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham')";
+            }
+        }
     }
 ?>
 <html>
@@ -37,6 +46,7 @@
             <img src="https://loading.io/spinners/pies/lg.pie-chart-loading-gif.gif" style="margin:0 auto;display:block;text-align:center;">
             <p>LƯU DỮ LIỆU VÀO HỆ THỐNG</p>
             <p style="color:red;font-weight:bolder;">VUI LÒNG CHỜ 2s KIỂM TRA DỮ LIỆU...</p>
+            <?php //echo $sql; ?>
         </div>
     </body>
 </html>

@@ -18,7 +18,7 @@
         <label>Ngày :</label>
         <select class="form-control" class="chonngaynhap" name="chonngaynhap">
            <?php 
-            $sql="SELECT * FROM bangnhap";
+            $sql="SELECT * FROM bangnhap ORDER BY ngaythang DESC";
             $rs = $conn->query($sql);
             foreach($rs as $row){
             $date=date_create($row['ngaythang']);

@@ -169,7 +169,8 @@ $(document).ready(function() {
         buttons: [
             'excel', 'pdf', 'print'
         ],
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+        "lengthMenu": [[50, 125, 250, -1], [100, 250, 500, "All"]],
+        "pageLength": 50
     });
 
 } );

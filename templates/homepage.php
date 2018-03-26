@@ -19,6 +19,9 @@
                 case "gdn" :
                     require_once('templates/homegdn.php');
                     break;
+                case "seo" :
+                    require_once('templates/homeseo.php');
+                    break;
                 default :
                     echo "Sai đường";
             }
