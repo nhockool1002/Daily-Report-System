@@ -102,23 +102,29 @@
                   <td><?php echo number_format($row['tongsokhachtuvan']); ?></td>
                   <td><?php echo number_format($row['hieuqua']); ?></td>
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
-                  <td><?php echo number_format($row['dathen']); ?></td>
+                  <td style="background-color:yellow"><?php echo number_format($row['dathen']); ?></td>
                   <td><?php echo $row['denkham']; ?></td>
                    <td><?php echo $row['ghichu']; ?></td>
                    <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>"><b>[XEM]</b></a></td>
-                   <td style="background-color:yellow !important;color:red;font-weight:bolder;"><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>
-                   <td style="background-color:yellow !important;color:red;font-weight:bolder;"><?php echo number_format(round($row['tongchiphi']/$row['uniquevisitor'])); ?></td>
-                   <td style="background-color:yellow !important;color:red;font-weight:bolder;"><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>
-                   <td style="background-color:yellow !important;color:red;font-weight:bolder;"><?php echo number_format(round($row['tongchiphi']/$row['hieuqua'])); ?></td>
-                   <td style="background-color:yellow !important;color:red;font-weight:bolder;"><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
-                   <td style="background-color:yellow !important;color:red;font-weight:bolder;"><?php if($row['denkham'] == ""){ $cuoicc = $row['tongchiphi']; echo number_format(round($row['tongchiphi'])); } else { $cuoicc = round($row['tongchiphi']/$row['denkham']); echo number_format(round($row['tongchiphi']/$row['denkham']));} ?></td>
-                   <td style="background-color:red !important;"><a style="color:yellow;font-weight:bolder;" href="index.php?page=editform&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['uniquevisitor'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['hieuqua'])); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
+                   <td><?php if($row['denkham'] == ""){ 
+                       $cuoicc = $row['tongchiphi']; 
+                       echo number_format(round($row['tongchiphi'])); 
+                       } else { 
+                           $cuoicc = round($row['tongchiphi']/$row['denkham']); 
+                           echo number_format(round($row['tongchiphi']/$row['denkham']));
+                        } ?></td>
+                   <td><a style="color:blue;font-weight:bolder;" href="index.php?page=editform&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
             
                            <?php $sumgdk= $sumgdk+$cuoicc; } ?>
                            
-                                   <tr style="background-color:yellow !important;color:red;font-weight:bolder;">
-                <td style="background-color:yellow !important;color:red;font-weight:bolder;">Tổng</td>
+                                   <tr>
+                <td>Tổng</td>
                 <td><?php echo number_format($sum); ?></td>
                 <td><?php echo number_format($sumht); ?></td>
                 <td><?php echo number_format($sumnc); ?></td>
@@ -126,7 +132,7 @@
                 <td><?php echo number_format($sumts); ?></td>
                 <td><?php echo number_format($sumhq); ?></td>
                 <td><?php echo number_format($sumkhq); ?></td>
-                <td><?php echo number_format($sumdh); ?></td>
+                <td style="background-color:yellow"><?php echo number_format($sumdh); ?></td>
                 <td><?php echo number_format($sumdk); ?></td>
                 <td><?php echo number_format($sumgc); ?></td>
                 <td>-</td>
@@ -136,7 +142,7 @@
                 <td><?php echo number_format($sumchq); ?></td>                     
                 <td><?php echo number_format($sumgdh); ?></td>
                 <td><?php echo number_format($sumgdk); ?></td>
-                <td style="background-color:red !important;"></td>
+                <td></td>
                 </tr>
                   
             </tbody>

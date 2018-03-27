@@ -15,7 +15,7 @@
 
             <hr>
           <br>
-           <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb">
+           <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb" style="text-align:center;">
              <thead>
             <tr>
                 <th>Ngày tháng</th>
@@ -45,7 +45,7 @@
                   <td><?php echo number_format($row['tongsokhachtuvan']); ?></td>
                   <td><?php echo number_format($row['hieuqua']); ?></td>
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
-                  <td><?php echo number_format($row['dathen']); ?></td>
+                  <td style="background-color:yellow"><?php echo number_format($row['dathen']); ?></td>
                   <td><?php echo number_format($row['adwords']); ?></td>
                   <td><?php echo number_format($row['facebook']); ?></td>
                   <td><?php echo number_format($row['seo']); ?></td>

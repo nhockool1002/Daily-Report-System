@@ -41,7 +41,7 @@
               $dt = $nam."-".$thang;
           }  
         ?>
-        <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb">
+        <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb" style="text-align:center;">
              <thead>
             <tr>
                 <th>Ngày tháng</th>
@@ -85,8 +85,8 @@
                   <td><?php echo number_format($row['tongsokhachtuvan']); ?></td>
                   <td><?php echo number_format($row['hieuqua']); ?></td>
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
-                  <td><?php echo number_format($row['dathen']); ?></td>
-                  <td><?php echo number_format($row['denkham']); ?></td>
+                  <td style="background-color:yellow;"><?php echo number_format($row['dathen']); ?></td>
+                  <td><?php echo $row['denkham']; ?></td>
                    <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>"><b>[XEM]</b></a></td>
                    <td><?php echo $row['ghichu']; ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>
@@ -94,7 +94,13 @@
                    <td><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['hieuqua'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
-                   <td><?php if($row['denkham'] == 0){ } else echo number_format(round($row['tongchiphi']/$row['denkham'])); ?></td>
+                   <td><?php if($row['denkham'] == ""){ 
+                       $cuoicc = $row['tongchiphi']; 
+                       echo number_format(round($row['tongchiphi'])); 
+                       } else { 
+                           $cuoicc = round($row['tongchiphi']/$row['denkham']); 
+                           echo number_format(round($row['tongchiphi']/$row['denkham']));
+                        } ?></td>
                    <td><a href="index.php?page=editform&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
             
