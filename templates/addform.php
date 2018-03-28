@@ -11,7 +11,7 @@ $date = date('Y-m-d');
             <a href="index.php?page=addform&form=formzl" class="btn btn-info btn-sm">Nhập dữ liệu Zalo</a>
             <a href="index.php?page=addform&form=formdt" class="btn btn-info btn-sm">Nhập dữ liệu Điện thoại</a>
             <a href="index.php?page=addform&form=formcc" class="btn btn-info btn-sm">Nhập dữ liệu Coccoc.com</a>
-            <a href="index.php?page=addform&form=formseo" class="btn btn-info btn-sm">Nhập dữ liệu SEO</a>
+            <a href="index.php?page=addform&form=formseo" class="btn btn-info btn-sm" disabled>Nhập dữ liệu SEO</a>
         </div>
     </div>
 </div>

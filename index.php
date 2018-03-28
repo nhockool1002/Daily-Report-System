@@ -53,13 +53,14 @@
             <div class="row">
                 <div class="col-sm-12">
                 <div class="row">
-                    <a class="btn btn-danger btn-sm" href="index.php">Xem dữ liệu Adword</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=adw">Xem dữ liệu Adword</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=gdn">Xem dữ liệu GDN</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=facebook">Xem dữ liệu Facebook</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=zalo">Xem dữ liệu Zalo</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=dienthoai">Xem dữ liệu Điện thoại</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=coccoc">Xem dữ liệu Coccoc.com</a>
-                    <a class="btn btn-danger btn-sm" href="index.php?view=seo">Xem dữ liệu SEO</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=seo" disabled>Xem dữ liệu SEO</a>
+                    <a class="btn btn-danger btn-sm" href="index.php" >Tổng chi phí</a>
                 </div>
                </div>
             </div>

@@ -14,7 +14,7 @@
         $hienthi = $_POST['hienthi'];
         $dt=date_create($date);
         $jw = date_format($dt,"Y-m-d");
-        $count = "select * from bangnhap where ngaythang like '$jw%'";
+        $count = "select * from bangnhapcc where ngaythang like '$jw%'";
         $dem = $conn->query($count);
         if(isset($_POST['ghichu'])){
             $ghichu = $_POST['ghichu'];

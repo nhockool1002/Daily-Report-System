@@ -22,12 +22,15 @@
                 case "seo" :
                     require_once('templates/homeseo.php');
                     break;
+                case "adw":
+                    require_once('templates/homeadw.php');
+                    break;
                 default :
                     echo "Sai đường";
             }
         }
         else{
-            require_once('templates/homeadw.php');
+            require_once('templates/hometotal.php');
         }
     ?>
     </div>
