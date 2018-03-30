@@ -20,8 +20,9 @@
             $ghichu = $_POST['ghichu'];
             $sql = "INSERT INTO `bangnhapcc`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$ghichu')";
         }
+        else{
         $sql = "INSERT INTO `bangnhapcc`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen')";
-           
+        }
     }
 ?>
 <html>

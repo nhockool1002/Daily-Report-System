@@ -78,7 +78,7 @@
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
                   <td><?php echo number_format($row['dathen']); ?></td>
                    <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>&zone=facebook"><b>[XEM]</b></a></td>
-                   <td><?php echo number_format($row['giathanh']); ?></td>
+                   <td><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
                    <td><a href="index.php?page=editformfb&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
             

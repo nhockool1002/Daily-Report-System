@@ -25,7 +25,7 @@
             <label>Không hiệu quả :</label><span class="luuy">(Thông số thể hiện số lượng không hiệu quả)</span>
             <input type="number" name="khonghieuqua" class="form-control" placeholder="Nhập số không hiệu quả" required>
             <br>
-            <label>Đến khám :</label><span class="luuy">(Thông số thể hiện số lần đặt hẹn)</span>
+            <label>Đến khám :</label><span class="luuy">(Thông số thể hiện số lần đến khám <b><span style="color:red">Có thể để trống</span></b>)</span>
             <input type="number" name="denkham" class="form-control" placeholder="Nhập số lần đến khám" >
             </div>
             <div class="col-sm-4">

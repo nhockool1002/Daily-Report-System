@@ -16,12 +16,22 @@
         $hienthi = $_POST['hienthi'];
         $dt=date_create($date);
         $jw = date_format($dt,"Y-m-d");
-        if(isset($_POST['ghichu'])){
+        if($_POST['ghichu'] != ""){
             $ghichu = $_POST['ghichu'];
-            $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`='$denkham',`ghichu`='$ghichu' WHERE id='$idbangnhap'";
+            if($denkham == ""){
+                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= NULL,`ghichu`='$ghichu' WHERE id='$idbangnhap'";
+            }else{
+                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= '$denkham',`ghichu`='$ghichu' WHERE id='$idbangnhap'";
+            }
+            
         }
-       $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`='$denkham' WHERE id='$idbangnhap'";
-           
+        else{
+       if($denkham == ""){
+                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= NULL WHERE id='$idbangnhap'";
+            }else{
+                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= '$denkham' WHERE id='$idbangnhap'";
+            }
+        }
     }
 ?>
 <html>

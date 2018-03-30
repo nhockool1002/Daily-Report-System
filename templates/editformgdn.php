@@ -44,7 +44,7 @@ $date = date('Y-m-d');
             <input type="number" name="khonghieuqua" class="form-control" placeholder="Nhập số không hiệu quả" value="<?php echo $row['khonghieuqua']; ?>" required>
             <br>
             <label>Đến khám :</label><span class="luuy">(Thông số thể hiện số lần đặt hẹn)</span>
-            <input type="number" name="denkham" class="form-control" placeholder="Nhập số lần đến khám" value="<?php echo $row['denkham']; ?>" required>
+            <input type="number" name="denkham" class="form-control" placeholder="Nhập số lần đến khám" value="<?php echo $row['denkham']; ?>" >
             </div>
             <div class="col-sm-4">
             <label>Tổng chi phí :</label><span class="luuy">(Thông số thể hiển tổng chi phí)</span>

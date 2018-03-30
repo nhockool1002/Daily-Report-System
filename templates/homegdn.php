@@ -54,7 +54,7 @@
                   <th>Đặt hẹn</th>
                   <th>Đến khám</th>
                   <th>DS mã số khám</th>
-                  <th>Ghi chú</th>
+                  <th>Không ghi chú/chat cũ</th>
                   <th>Bình quân giá click</th>
                   <th>Bình quân giá chuyển hóa</th>
                   <th>Bình quân giá tư vấn</th>
@@ -86,7 +86,7 @@
                   <td><?php echo number_format($row['hieuqua']); ?></td>
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
                   <td><?php echo number_format($row['dathen']); ?></td>
-                  <td><?php echo number_format($row['denkham']); ?></td>
+                  <td><?php echo $row['denkham']; ?></td>
                    <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>&zone=gdn"><b>[XEM]</b></a></td>
                    <td><?php echo $row['ghichu']; ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>

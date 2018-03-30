@@ -25,8 +25,8 @@
             <label>Không hiệu quả :</label><span class="luuy">(Thông số thể hiện số lượng không hiệu quả)</span>
             <input type="number" name="khonghieuqua" class="form-control" placeholder="Nhập số không hiệu quả" required>
             <br>
-            <label>Đến khám :</label><span class="luuy">(Thông số thể hiện số lần đặt hẹn)</span>
-            <input type="number" name="denkham" class="form-control" placeholder="Nhập số lần đến khám" required>
+            <label>Đến khám :</label><span class="luuy">(Thông số thể hiện số lần đến khám <b><span style="color:red">Có thể để trống</span></b>)</span>
+            <input type="number" name="denkham" class="form-control" placeholder="Nhập số lần đến khám">
             </div>
             <div class="col-sm-4">
             <label>Tổng chi phí :</label><span class="luuy">(Thông số thể hiển tổng chi phí)</span>
@@ -46,7 +46,7 @@
                 <br>
             </div>
             <div class="col-sm-4">
-            <label>Ghi chú :</label><span class="luuy" style="padding-right:20px;">(Ghi chú thêm)</span>
+            <label>Không ghi chú/chat cũ :</label><span class="luuy" style="padding-right:20px;">(Ghi chú thêm, không có vui lòng nhập 0)</span>
             <textarea name="ghichu" class="form-control" style="width:95%;height:200px;" placeholder="Nhập ghi chú"></textarea>
                 <br>
             <button type="submit" class="btn btn-success btn-lg" style="width:95%;" name="submit">Lưu số liệu</button>

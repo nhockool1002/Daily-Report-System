@@ -53,7 +53,7 @@
                   <th>Không hiệu quả</th>
                   <th>Đặt hẹn</th>
                   <th>DS mã số khám</th>
-                  <th>Ghi chú</th>
+                  <th>Ghông ghi chú/chat cũ</th>
                   <th>Bình quân giá click</th>
                   <th>Bình quân giá chuyển hóa</th>
                   <th>Bình quân giá tư vấn</th>

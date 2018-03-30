@@ -12,10 +12,9 @@
         $hieuqua = $_POST['hieuqua'];
         $dathen = $_POST['dathen'];
         $hienthi = $_POST['hienthi'];
-        $giathanh = $_POST['giathanh'];
         $dt=date_create($date);
         $jw = date_format($dt,"Y-m-d");
-       $sql = "UPDATE `bangnhapfb` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`giathanh` = '$giathanh' WHERE id='$idbangnhap'";
+       $sql = "UPDATE `bangnhapfb` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen' WHERE id='$idbangnhap'";
            
     }
 ?>

@@ -19,8 +19,9 @@
             $ghichu = $_POST['ghichu'];
             $sql = "UPDATE `bangnhapcc` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`ghichu`='$ghichu' WHERE id='$idbangnhap'";
         }
+        else{
        $sql = "UPDATE `bangnhapcc` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen' WHERE id='$idbangnhap'";
-           
+        }
     }
 ?>
 <html>

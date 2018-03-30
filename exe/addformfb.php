@@ -11,13 +11,12 @@
         $hieuqua = $_POST['hieuqua'];
         $dathen = $_POST['dathen'];
         $hienthi = $_POST['hienthi'];
-        $giathanh = $_POST['giathanh'];
         $dt=date_create($date);
         $jw = date_format($dt,"Y-m-d");
         $count = "select * from bangnhapfb where ngaythang like '$jw%'";
         $dem = $conn->query($count);
 
-        $sql = "INSERT INTO `bangnhapfb`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`,`giathanh`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$giathanh')";
+        $sql = "INSERT INTO `bangnhapfb`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen')";
            
     }
 ?>

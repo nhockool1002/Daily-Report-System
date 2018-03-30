@@ -57,8 +57,6 @@ $date = date('Y-m-d');
             <input type="number" name="dathen" class="form-control" placeholder="Nhập số lần đặt hẹn" value="<?php echo $row['dathen']; ?>" required>
             </div>
             <div class="col-sm-4">
-            <label>Giá thành/hẹn :</label><span class="luuy" style="margin-right:20px;">(Nhập giá thành)</span>
-            <input type="number" name="giathanh" class="form-control" placeholder="Nhập giá thành" style="width:95%;" value="<?php echo $row['giathanh']; ?>" required>
             <br>
             <button type="submit" class="btn btn-success btn-lg" style="width:95%;" name="submit">Lưu số liệu</button>
                 <br><br>

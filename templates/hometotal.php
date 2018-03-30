@@ -12,7 +12,11 @@
                                             
                                              } ?>
         </div>
-         
+         <div>
+         <div class="alert alert-warning"><b>Lưu ý : Số liệu tổng chỉ tính toán được khi tất cả các bảng nhập trong 1 ngày được điền xong.Nếu không sẽ hiển thị 0 tức là có bảng nhập chưa hoàn thành.</b></div>
+         <div class="alert alert-danger"><b>Cập nhật 30/3/2018 :<br>+ Nhập liệu GDN, Coccoc, Facebook, Zalo <br>+ Tính tổng bao gồm Adword + Điện Thoại + GDN + Coccoc + Facebook + Zalo.</b></div>
+
+         </div>
             <hr>
           <br>
            <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb" style="text-align:center;">
@@ -58,16 +62,24 @@
                 $ft = date_format($date,"Y-m-d");
 
                 $total = "SELECT bangnhap.ngaythang, 
-                SUM(bangnhap.tongchiphi) as tongchiphi,
-                SUM(bangnhap.hienthi) as hienthi ,
-                SUM(bangnhap.sonhapchuot) as sonhapchuot ,
-                SUM(bangnhap.uniquevisitor) as uniquevisitor , 
-                SUM(bangnhap.tongsokhachtuvan + bangnhapdt.tongsokhachtuvan) as tongsokhachtuvan , 
-                SUM(bangnhap.hieuqua + bangnhapdt.hieuqua) as hieuqua ,
-                SUM(bangnhap.khonghieuqua + bangnhapdt.khonghieuqua) as khonghieuqua ,
-                SUM(bangnhap.dathen + bangnhapdt.dathen) as dathen , 
-                SUM(bangnhap.ghichu) as ghichu FROM bangnhap JOIN bangnhapdt 
-                WHERE bangnhap.ngaythang = '$day%' AND bangnhapdt.ngaythang = '$day%' AND bangnhap.ngaythang LIKE '$ngthang%'";
+                SUM(bangnhap.tongchiphi + bangnhapgdn.tongchiphi + bangnhapcc.tongchiphi + bangnhapfb.tongchiphi) as tongchiphi,
+                SUM(bangnhap.hienthi + bangnhapgdn.hienthi + bangnhapcc.hienthi + bangnhapfb.hienthi) as hienthi ,
+                SUM(bangnhap.sonhapchuot + bangnhapgdn.sonhapchuot + bangnhapcc.sonhapchuot + bangnhapfb.sonhapchuot) as sonhapchuot ,
+                SUM(bangnhap.uniquevisitor + bangnhapgdn.uniquevisitor + bangnhapcc.uniquevisitor) as uniquevisitor , 
+                SUM(bangnhap.tongsokhachtuvan + bangnhapdt.tongsokhachtuvan + bangnhapgdn.tongsokhachtuvan + bangnhapcc.tongsokhachtuvan + bangnhapfb.tongsokhachtuvan + bangnhapzl.tongsokhachtuvan) as tongsokhachtuvan , 
+                SUM(bangnhap.hieuqua + bangnhapdt.hieuqua + bangnhapgdn.hieuqua + bangnhapcc.hieuqua + bangnhapfb.hieuqua + bangnhapzl.hieuqua) as hieuqua ,
+                SUM(bangnhap.khonghieuqua + bangnhapdt.khonghieuqua + bangnhapgdn.khonghieuqua + bangnhapcc.khonghieuqua + bangnhapfb.khonghieuqua + bangnhapzl.khonghieuqua) as khonghieuqua ,
+                SUM(bangnhap.dathen + bangnhapdt.dathen + bangnhapgdn.dathen + bangnhapcc.dathen + bangnhapfb.dathen + bangnhapzl.dathen) as dathen , 
+                SUM(bangnhap.ghichu + bangnhapgdn.ghichu + bangnhapcc.ghichu) as ghichu
+                FROM bangnhap JOIN bangnhapdt JOIN bangnhapgdn JOIN bangnhapcc JOIN bangnhapfb JOIN bangnhapzl
+                WHERE bangnhap.ngaythang = '$day%' 
+                AND bangnhapdt.ngaythang = '$day%' 
+                AND bangnhapgdn.ngaythang = '$day%' 
+                AND bangnhapcc.ngaythang = '$day%' 
+                AND bangnhapfb.ngaythang = '$day%' 
+                AND bangnhapzl.ngaythang = '$day%'
+                AND bangnhap.ngaythang 
+                LIKE '$ngthang%'";
                 $stmt = $conn->prepare($total);
                 $stmt->execute();
                 $result = $stmt->get_result();
