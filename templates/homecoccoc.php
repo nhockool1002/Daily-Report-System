@@ -86,7 +86,7 @@
                   <td><?php echo number_format($row['khonghieuqua']); ?></td>
                   <td><?php echo number_format($row['dathen']); ?></td>
                    <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>&zone=coccoc.com"><b>[XEM]</b></a></td>
-                   <td><?php echo $row['ghichu']; ?></td>
+                   <td><?php echo number_format($row['tongsokhachtuvan']-$row['hieuqua']-$row['khonghieuqua']-$row['dathen']); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['uniquevisitor'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>

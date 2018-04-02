@@ -197,3 +197,12 @@ $(document).ready(function(){
 var day = getUrlParameter('day');
 
 });
+
+$('#chonnguonden').on('change', function() {
+    if($(this).val() == 11){
+        $(".nguondencuaseo").css({'display':'block'});;
+    }
+    else{
+        $(".nguondencuaseo").css({'display':'none'});;
+    }
+  });

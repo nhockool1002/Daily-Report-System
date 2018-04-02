@@ -59,14 +59,14 @@
                     <a class="btn btn-danger btn-sm" href="index.php?view=zalo">Xem dữ liệu Zalo</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=dienthoai">Xem dữ liệu Điện thoại</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=coccoc">Xem dữ liệu Coccoc.com</a>
-                    <a class="btn btn-danger btn-sm" href="index.php?view=seo" disabled>Xem dữ liệu SEO</a>
+                    <a class="btn btn-danger btn-sm" href="index.php?view=seo">Xem dữ liệu SEO</a>
                     <a class="btn btn-danger btn-sm" href="index.php" >Tổng chi phí</a>
                 </div>
                </div>
             </div>
             </div>
            <?php } ?>
-            <div class="container<?php if(!isset($_GET['page']) || $_GET['page'] == 'olddata' || $_GET['page'] == 'olddatacc' || $_GET['page'] == 'olddatagdn'){ echo "-fluid"; } ?>">
+            <div class="container<?php if(!isset($_GET['page']) || $_GET['page'] == 'olddata' || $_GET['page'] == 'olddatacc' || $_GET['page'] == 'olddatagdn' || $_GET['page'] == 'olddatatotal'){ echo "-fluid"; } ?>">
                 <div class="col-sm-12 bodycontent">
                     <div class="row">
                         <?php
@@ -97,6 +97,9 @@
                                 case "editformgdn" :
                                     require_once("templates/editformgdn.php");
                                     break;
+                                case "editformseo" :
+                                    require_once("templates/editformseo.php");
+                                    break;
                                 case "msklist" :
                                     require_once("templates/msk.php");
                                     break;
@@ -117,6 +120,12 @@
                                     break;
                                 case "olddatagdn" :
                                     require_once("templates/olddatagdn.php");
+                                    break;
+                                case "olddataseo" :
+                                    require_once("templates/olddataseo.php");
+                                    break;
+                                    case "olddatatotal" :
+                                    require_once("templates/olddatatotal.php");
                                     break;
                                 default :
                                     echo "Đỉa chỉ này không có";

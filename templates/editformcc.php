@@ -62,7 +62,7 @@ $date = date('Y-m-d');
                         </div>
             <div class="col-sm-4">
             <label>Ghi chú :</label><span class="luuy" style="padding-right:20px;">(Ghi chú thêm)</span>
-            <textarea name="ghichu" class="form-control" style="width:95%;height:200px;" placeholder="Nhập ghi chú"><?php echo $row['ghichu']; ?></textarea>
+            <textarea name="ghichu" class="form-control" style="width:95%;height:200px;" placeholder="Nhập ghi chú" disabled></textarea>
                 <br>
             <button type="submit" class="btn btn-success btn-lg" style="width:95%;" name="submit">Cập nhật số liệu</button>
                 <br><br>

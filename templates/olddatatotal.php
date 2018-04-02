@@ -1,26 +1,11 @@
-<div class="row">
-        <div class="h1title">Tổng chi phí</div>
+<div class="container-fluid">
+    <div class="col-sm-12">
+        <div class="row">
+        <div class="h1title">Bảng cũ</div>
         </div>
         <br>
-        <?php require_once('templates/stat.php'); ?>
         <div class="row">
-          <br><br>
-          <?php if(isset($_SESSION['flash'])){ ?>
-        <div class="row">
-            <?php echo $_SESSION['flash'];
-                    unset($_SESSION['flash']);
-                                            
-                                             } ?>
-        </div>
-         <div>
-         <div class="alert alert-warning"><b>Lưu ý : Số liệu tổng chỉ tính toán được khi tất cả các bảng nhập trong 1 ngày được điền xong.Nếu không sẽ hiển thị 0 tức là có bảng nhập chưa hoàn thành.</b></div>
-         <div class="alert alert-danger"><b>Cập nhật 30/3/2018 :<br>+ Nhập liệu GDN, Coccoc, Facebook, Zalo <br>+ Tính tổng bao gồm Adword + Điện Thoại + GDN + Coccoc + Facebook + Zalo.</b></div>
-
-         </div>
-            <hr>
-          <br>
-          <?php $getname = date('Y'); ?>
-          <form method="post" action="index.php?page=olddatatotal">
+            <form method="post" action="index.php?page=olddatatotal">
             <p>Xem dữ liệu khác</p>
             <select class="chonthang" name="chonthang">
                 <option value='01'>Tháng 1</option>
@@ -37,14 +22,26 @@
                 <option value='12'>Tháng 12</option>
             </select>
             <select class="chonnam" name="chonnam">
-             <?php for($i=2016;$i<=$getname;$i++){ ?>
+                 <?php 
+                $getname = date('Y');
+                for($i=2016;$i<=$getname;$i++){ ?>
                 <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php } ?>
             </select>
             <button type="submit" class="btn btn-info btn-xs" name="submit">Xem danh sách</button>
             </form>
             <hr>
-           <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb" style="text-align:center;">
+        </div>
+        <br>
+        <div class="row">
+        <?php
+          if(isset($_POST['submit'])){
+              $nam = $_POST['chonnam'];
+              $thang = $_POST['chonthang'];
+              $ngthang = $nam."-".$thang;
+          }  
+        ?>
+        <table id="kooltable" class="display" cellspacing="0" width="100%" id="dttb" style="text-align:center;">
              <thead>
             <tr>
                 <th>Ngày tháng</th>
@@ -68,11 +65,9 @@
             </tr>
             </thead>       
                <tbody>
-               <?php $nam = date("Y"); ?>
-               <?php $thang = date("m"); ?>
-               <?php $ngthang = $nam."-".$thang; ?>
                <?php 
                $sql = "SELECT ngaythang FROM bangnhap WHERE ngaythang LIKE '$ngthang%'";
+               echo $sql;
                $rs = $conn->query($sql);
                $rs->fetch_assoc();
                $sum = 0;$sumht =0;$sumnc=0;$sumun=0;$sumts=0;
@@ -565,3 +560,6 @@
             
     </table>
         </div>
+
+    </div>
+</div>

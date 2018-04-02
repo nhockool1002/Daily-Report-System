@@ -88,7 +88,7 @@
                   <td style="background-color:yellow;"><?php echo number_format($row['dathen']); ?></td>
                   <td><?php echo $row['denkham']; ?></td>
                    <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>"><b>[XEM]</b></a></td>
-                   <td><?php echo $row['ghichu']; ?></td>
+                   <td><?php echo $row['tongsokhachtuvan']."<br>".$row['dathen']."<br>".$row['khonghieuqua']."<br>".$row['hieuqua']."<br>";echo $row['tongsokhachtuvan']-$row['dathen']-$row['hieuqua']-$row['khonghieuqua']; ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['sonhapchuot'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['uniquevisitor'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>

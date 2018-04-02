@@ -5,32 +5,32 @@
     if(isset($_POST['submit'])){
         $date = $_POST['ngaythang'];
         $sonhapchuot = $_POST['sonhapchuot'];
-        $tongsokhachtuvan = $_POST['tongsokhachtuvan'];
-        $khonghieuqua = $_POST['khonghieuqua'];
+        //$tongsokhachtuvan = $_POST['tongsokhachtuvan'];
+        //$khonghieuqua = $_POST['khonghieuqua'];
         $tongchiphi = $_POST['tongchiphi'];
-        $uniquevisitors = $_POST['uniquevisitors'];
-        $hieuqua = $_POST['hieuqua'];
-        $dathen = $_POST['dathen'];
-        $denkham = $_POST['denkham'];
+        //$uniquevisitors = $_POST['uniquevisitors'];
+        //$hieuqua = $_POST['hieuqua'];
+        //$dathen = $_POST['dathen'];
+        //$denkham = $_POST['denkham'];
         $hienthi = $_POST['hienthi'];
         $dt=date_create($date);
         $jw = date_format($dt,"Y-m-d");
         $count = "select * from bangnhapgdn where ngaythang like '$jw%'";
         $dem = $conn->query($count);
-        if($_POST['ghichu'] != ""){
-            $ghichu = $_POST['ghichu'];
-            if($denkham == ""){
-                $sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$ghichu')";
-            }else{
-            $sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham','$ghichu')";}
-        }
+        if(isset($_POST['ghichu']) && $_POST['ghichu'] != ""){
+            //$ghichu = $_POST['ghichu'];
+            //if($denkham == ""){
+               //$sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot')";
+            //}else{
+            $sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot')";}
+
         else{
-        if($denkham == ""){
-                $sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen')";
-            }
-            else{
-            $sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham')";
-            }
+       // if($denkham == ""){
+            //   $sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot')";
+           // }
+          //  else{
+            $sql = "INSERT INTO `bangnhapgdn`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot')";
+           // }
         }
     }
 ?>

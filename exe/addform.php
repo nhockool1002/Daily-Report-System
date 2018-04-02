@@ -17,12 +17,12 @@
         $jw = date_format($dt,"Y-m-d");
         $count = "select * from bangnhap where ngaythang like '$jw%'";
         $dem = $conn->query($count);
-        if($_POST['ghichu'] != ""){
+        if(isset($_POST['ghichu']) && $_POST['ghichu'] != ""){
             $ghichu = $_POST['ghichu'];
             if($denkham == ""){
-                $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$ghichu')";
+                $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen')";
             }else{
-            $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`,`ghichu`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham','$ghichu')";}
+            $sql = "INSERT INTO `bangnhap`(`ngaythang`, `tongchiphi`,`hienthi`, `sonhapchuot`, `uniquevisitor`, `tongsokhachtuvan`, `hieuqua`, `khonghieuqua`, `dathen`, `denkham`) VALUES ('$date','$tongchiphi','$hienthi','$sonhapchuot','$uniquevisitors','$tongsokhachtuvan','$hieuqua','$khonghieuqua','$dathen','$denkham')";}
         }
         else{
         if($denkham == ""){

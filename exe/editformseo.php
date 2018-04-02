@@ -3,18 +3,16 @@
     ob_start();
     require_once("../config/config.php");
     if(isset($_POST['submit'])){
-        $onhap = strtoupper($_POST['onhapmasokham']);
-        $nguonden = $_POST['chonnguonden'];
-        $bangnhap = $_POST['chonngaynhap'];
-        if(isset($_POST['chonnguondenseo']) && $nguonden == '11' ){
-            $seo = $_POST['chonnguondenseo'];
-            $sql = "INSERT INTO `masokham`(`msk`,`idnguonden`,`idbangnhap`,`idnguondenseo`) VALUES ('$onhap','$nguonden','$bangnhap','$seo')";
-        }
-        else{
-        $sql = "INSERT INTO `masokham`(`msk`,`idnguonden`,`idbangnhap`,`idnguondenseo`) VALUES ('$onhap','$nguonden','$bangnhap',NULL)";
-        }
-        $conn->query($sql);
-        echo $sql;
+        $idbangnhap = $_POST['idbangnhap'];
+        $date = $_POST['ngaythang'];
+        $tongsokhachtuvan = $_POST['tongsokhachtuvan'];
+        $khonghieuqua = $_POST['khonghieuqua'];
+        $hieuqua = $_POST['hieuqua'];
+        $dathen = $_POST['dathen'];
+        $dt=date_create($date);
+        $jw = date_format($dt,"Y-m-d");
+       $sql = "UPDATE `bangnhapseo` SET `ngaythang`='$jw',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen' WHERE id='$idbangnhap'";
+           
     }
 ?>
 <html>
@@ -33,6 +31,9 @@
     </body>
 </html>
 <?php
-    $_SESSION['flash'] = "<div class='alert alert-success' style='margin-top: 10px;width: 100%;margin-left: 0;'><b>Đã thêm mã số khám vào Cơ sở dữ liệu</b></div>";
-    header("Refresh:2; url=../index.php?page=msklist&child=tmsk");
+
+    $conn->query($sql);
+    $_SESSION['flash'] = "<div class='alert alert-success' style='width:100%;'><b>Đã cập nhật số liệu vào Cơ sở dữ liệu</b></div>";
+    header("Refresh:2; url=../index.php?view=seo");
+
 ?>

@@ -5,7 +5,7 @@
         <input type="text" class="form-control onhapmasokham" name="onhapmasokham">
         <br>
         <label>Nguồn đến :</label>
-        <select class="form-control" class="chonnguonden" name="chonnguonden">
+        <select class="form-control" class="chonnguonden" name="chonnguonden" id="chonnguonden">
            <?php 
             $sql="SELECT * FROM nguonden";
             $rs = $conn->query($sql);
@@ -14,6 +14,19 @@
             <option value="<?php echo $row['id']; ?>"><?php echo $row['nguonden']; ?></option>
             <?php } ?>
         </select>
+        <br>
+        <div class="nguondencuaseo" style="display:none">
+        <label>Nguồn đến seo:</label>
+        <select class="form-control" class="chonnguondenseo" name="chonnguondenseo">
+           <?php 
+            $sql="SELECT * FROM nguondenseo";
+            $rs = $conn->query($sql);
+            foreach($rs as $row){
+            ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+            <?php } ?>
+        </select>
+        </div>
         <br>
         <label>Ngày :</label>
         <select class="form-control" class="chonngaynhap" name="chonngaynhap">
