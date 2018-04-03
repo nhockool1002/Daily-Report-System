@@ -6,32 +6,32 @@
         $idbangnhap = $_POST['idbangnhap'];
         $date = $_POST['ngaythang'];
         $sonhapchuot = $_POST['sonhapchuot'];
-        $tongsokhachtuvan = $_POST['tongsokhachtuvan'];
-        $khonghieuqua = $_POST['khonghieuqua'];
+       // $tongsokhachtuvan = $_POST['tongsokhachtuvan'];
+        //$khonghieuqua = $_POST['khonghieuqua'];
         $tongchiphi = $_POST['tongchiphi'];
-        $uniquevisitors = $_POST['uniquevisitors'];
-        $hieuqua = $_POST['hieuqua'];
-        $dathen = $_POST['dathen'];
-        $denkham = $_POST['denkham'];
+        ////$uniquevisitors = $_POST['uniquevisitors'];
+        //$hieuqua = $_POST['hieuqua'];
+        //$dathen = $_POST['dathen'];
+        //$denkham = $_POST['denkham'];
         $hienthi = $_POST['hienthi'];
         $dt=date_create($date);
         $jw = date_format($dt,"Y-m-d");
-        if($_POST['ghichu'] != ""){
-            $ghichu = $_POST['ghichu'];
-            if($denkham == ""){
-                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= NULL,`ghichu`='$ghichu' WHERE id='$idbangnhap'";
-            }else{
-                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= '$denkham',`ghichu`='$ghichu' WHERE id='$idbangnhap'";
-            }
+        if(isset($_POST['ghichu'])){
+            // $ghichu = $_POST['ghichu'];
+            // if($denkham == ""){
+            //     $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= NULL,`ghichu`='$ghichu' WHERE id='$idbangnhap'";
+            // }else{
+                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot' WHERE id='$idbangnhap'";
+        //     }
             
-        }
+         }
         else{
-       if($denkham == ""){
-                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= NULL WHERE id='$idbangnhap'";
-            }else{
-                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= '$denkham' WHERE id='$idbangnhap'";
+    //    if($denkham == ""){
+    //             $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot',`uniquevisitor`='$uniquevisitors',`tongsokhachtuvan`='$tongsokhachtuvan',`hieuqua`='$hieuqua',`khonghieuqua`='$khonghieuqua',`dathen`='$dathen',`denkham`= NULL WHERE id='$idbangnhap'";
+    //         }else{
+                $sql = "UPDATE `bangnhapgdn` SET `ngaythang`='$jw',`hienthi`='$hienthi',`tongchiphi`='$tongchiphi',`sonhapchuot`='$sonhapchuot' WHERE id='$idbangnhap'";
             }
-        }
+        // }
     }
 ?>
 <html>

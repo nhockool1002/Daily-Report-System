@@ -95,7 +95,7 @@
                    <td><?php echo number_format(round($row['tongchiphi']/$row['hieuqua'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
                    <td><?php if($row['denkham'] == 0){ } else echo number_format(round($row['tongchiphi']/$row['denkham'])); ?></td>
-                   <td><a href="index.php?page=editform&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
+                   <td><a href="index.php?page=editformgdn&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
             
                            <?php } ?>

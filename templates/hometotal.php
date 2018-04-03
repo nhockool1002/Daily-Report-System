@@ -38,7 +38,7 @@
             </select>
             <select class="chonnam" name="chonnam">
              <?php for($i=2016;$i<=$getname;$i++){ ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <option value="<?php echo $i; ?>" <?php if($i==$getname){ echo "selected";}?>><?php echo $i; ?></option>
                 <?php } ?>
             </select>
             <button type="submit" class="btn btn-info btn-xs" name="submit">Xem danh sách</button>
@@ -78,13 +78,14 @@
                $sum = 0;$sumht =0;$sumnc=0;$sumun=0;$sumts=0;
                 $sumhq = 0;$sumkhq=0;$sumdh=0;$sumdk=0;$sumgc=0;
                 $sumbqc =0;$sumch=0;$sumtv=0;$sumchq=0;$sumgdh=0;
-                $sumgdk =0;
+                $sumgdk =0;$sumtcc=0;$sumdm=0;
                foreach($rs as $row){
                 
                 $date=date_create($row['ngaythang']);
                 $jw = date_format($date,"d/m/Y");
                 $day = date_format($date,"Y-m-d");
                 $ft = date_format($date,"Y-m-d");
+
 
                 // TINH SUM ALL
                 $sumtcp =0;
@@ -516,6 +517,14 @@
                 $sumhq = $sumhq+$rowz['hieuqua'];
                 $sumkhq = $sumkhq+$rowz['khonghieuqua'];
                 $sumdh = $sumdh+$rowz['dathen'];
+
+                $sumdkvl = 0;
+                $zero = 0;
+                $sql0 = "SELECT count(soluong) as dem,soluong FROM denkham WHERE ngaythang = '$day%'";
+                $vlz = $conn->prepare($sql0);
+                $vlz->execute();
+                $rsz = $vlz->get_result();
+                $rowzz = $rsz->fetch_assoc();
                 
                ?>
             <tr>
@@ -528,7 +537,7 @@
                   <td><?php echo  number_format($rowz['hieuqua']); ?></td>
                   <td><?php echo  number_format($rowz['khonghieuqua']); ?></td>
                   <td style="background-color:yellow"><?php echo $rowz['dathen']; ?></td>
-                  <td></td>
+                  <td style="background-color:red"><?php if($rowzz['dem']==0){echo $zero;}else{ $tongne = $rowzz['soluong']; echo $rowzz['soluong'];$sumtcc+=$tongne; } ?></td>
                    <td><?php $ghichudz = $rowz['tongsokhachtuvan']-$rowz['hieuqua']-$rowz['khonghieuqua']-$rowz['dathen']; echo number_format($ghichudz);$sumgc+=$ghichudz; ?></td>
                    <td><a href="index.php?page=msklist&child=filter&day=<?php echo $ft; ?>"><b>[XEM]</b></a></td>
                    <td><?php if($rowz['sonhapchuot'] == NULL ){$rowz['sonhapchuot'] == 1;echo "0";} else {$bqcc = $rowz['tongchiphi']/$rowz['sonhapchuot'];echo number_format(round($bqcc));$sumbqc+=$bqcc;} ?></td>
@@ -536,12 +545,11 @@
                    <td><?php if($rowz['tongsokhachtuvan'] == NULL ){$rowz['tongsokhachtuvan'] == 1;echo "0";} else {$bqtv = $rowz['tongchiphi']/$rowz['tongsokhachtuvan'];echo number_format(round($bqtv));$sumtv+=$bqtv;} ?></td>
                    <td><?php if($rowz['hieuqua'] == NULL ){$rowz['hieuqua'] == 1;echo "0";} else {$chathq = $rowz['tongchiphi']/$rowz['hieuqua'];echo number_format(round($chathq));$sumchq+=$chathq;} ?></td>
                    <td><?php if($rowz['dathen'] == NULL ){$rowz['dathen'] == 1;echo "0";} else {$hqdhs = $rowz['tongchiphi']/$rowz['dathen'];echo number_format(round($hqdhs));$sumgdh+=$hqdhs;} ?></td>
-                   <td><?php echo  number_format($rowz['tongchiphi']); ?></td>
+                   <td><?php if($rowzz['dem']==0){ echo 0;}else{$ccc =$rowz['tongchiphi']/$rowzz['soluong']; echo number_format(round($ccc));$sumdm+=$ccc;} ?></td>
                     </tr>
                <?php  }
-                ?>      
-
-                  <tr>
+                ?>     
+                  <tr style="font-weight:bolder;">
                 <td>Tổng</td>
                 <td><?php echo number_format($sum); ?></td>
                 <td><?php echo number_format($sumht); ?></td>
@@ -551,15 +559,15 @@
                 <td><?php echo number_format($sumhq); ?></td>
                 <td><?php echo number_format($sumkhq); ?></td>
                 <td style="background-color:yellow"><?php echo number_format($sumdh); ?></td>
-                <td>-</td>
+                <td style="background-color:red"><b><?php echo number_format($sumtcc); ?></b></td>
                 <td><?php echo number_format($sumgc); ?></td>
                 <td>-</td>
-                <td><?php echo number_format($sumbqc); ?></td>
-                <td><?php echo number_format($sumch); ?></td>
-                <td><?php echo number_format($sumtv); ?></td>
-                <td><?php echo number_format($sumchq); ?></td>                     
-                <td><?php echo number_format($sumgdh); ?></td>
-                <td><?php echo number_format($sum); ?></td>
+                <td><b><?php echo number_format($sum/$sumbqc); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumch); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumtv); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumchq); ?></b></td>                     
+                <td><b><?php echo number_format(round($sum/$sumdh)); ?></b></td>
+                <td><b><?php echo number_format(round($sum/$sumtcc)); ?></b></td>
                 </tr> 
             </tbody>
             

@@ -53,6 +53,7 @@
             <div class="row">
                 <div class="col-sm-12">
                 <div class="row">
+                    <a class="btn btn-danger btn-sm" href="index.php?page=adddenkham">Đến Khám</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=adw">Xem dữ liệu Adword</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=gdn">Xem dữ liệu GDN</a>
                     <a class="btn btn-danger btn-sm" href="index.php?view=facebook">Xem dữ liệu Facebook</a>
@@ -124,8 +125,11 @@
                                 case "olddataseo" :
                                     require_once("templates/olddataseo.php");
                                     break;
-                                    case "olddatatotal" :
+                                case "olddatatotal" :
                                     require_once("templates/olddatatotal.php");
+                                    break;
+                                case "adddenkham" :
+                                    require_once("templates/adddenkham.php");
                                     break;
                                 default :
                                     echo "Đỉa chỉ này không có";
