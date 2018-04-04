@@ -1,4 +1,4 @@
-<div class="container-fluid">
+﻿<div class="container-fluid">
     <div class="col-sm-12">
         <div class="row">
         <div class="h1title">Bảng cũ</div>
@@ -559,10 +559,10 @@
                 <td style="background-color:red"><b><?php echo number_format($sumtcc); ?></b></td>
                 <td><b><?php echo number_format($sumgc); ?></b></td>
                 <td>-</td>
-                <td><b><?php echo number_format($sum/$sumbqc); ?></b></td>
-                <td><b><?php echo number_format($sum/$sumch); ?></b></td>
-                <td><b><?php echo number_format($sum/$sumtv); ?></b></td>
-                <td><b><?php echo number_format($sum/$sumchq); ?></b></td>                     
+                <td><b><?php echo number_format($sum/$sumnc); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumun); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumts); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumhq); ?></b></td>                     
                 <td><b><?php echo number_format(round($sum/$sumdh)); ?></b></td>
                 <td><b><?php echo number_format(round($sum/$sumtcc)); ?></b></td>
                 </tr> 
