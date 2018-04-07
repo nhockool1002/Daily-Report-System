@@ -25,7 +25,7 @@
                  <?php 
                 $getname = date('Y');
                 for($i=2016;$i<=$getname;$i++){ ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <option value="<?php echo $i; ?>" <?php if($i == $getname){ echo "selected"; } ?>><?php echo $i; ?></option>
                 <?php } ?>
             </select>
             <button type="submit" class="btn btn-info btn-xs" name="submit">Xem danh sách</button>
@@ -59,11 +59,21 @@
                <?php
             $sql = "SELECT * FROM bangnhapdt WHERE ngaythang LIKE '%$dt%' ORDER BY id DESC";
             if ($result = $conn->query($sql)) {
-                $sum = 0;
+                $sum = 0;$sumht =0;$sumnc=0;$sumun=0;$sumts=0;
+                $sumhq = 0;$sumkhq=0;$sumdh=0;$sumdk=0;$sumgc=0;
+                $sumbqc =0;$sumch=0;$sumtv=0;$sumchq=0;$sumgdh=0;
+                $sumgdk =0;$adw=0;$fb=0;$seo=0;
                 while ($row = $result->fetch_assoc()) {
                     $date=date_create($row['ngaythang']);
                     $jw = date_format($date,"d/m/Y");
                     $ft = date_format($date,"Y-m-d");
+                    $sumts = $sumts+$row['tongsokhachtuvan'];
+                    $sumhq = $sumhq+$row['hieuqua'];
+                    $sumkhq = $sumkhq+$row['khonghieuqua'];
+                    $sumdh = $sumdh+$row['dathen'];
+                    $adw = $adw+$row['adwords'];
+                    $fb = $fb+$row['facebook'];
+                    $seo = $seo+$row['seo'];
                     ?>
             <tr>
                     <td><?php echo $jw; ?></td>
@@ -78,6 +88,17 @@
                     </tr>
             
                            <?php } ?>
+                           <tr>
+                           <td><b>Tổng</td>
+                <td><b><?php echo number_format($sumts); ?></b></td>
+                <td><b><?php echo number_format($sumhq); ?></b></td>
+                <td><b><?php echo number_format($sumkhq); ?></b></td>
+                <td><b><?php echo number_format($sumdh); ?></b></td>
+                <td><b><?php echo number_format($adw); ?></b></td>
+                <td><b><?php echo number_format($fb); ?></b></td>
+                <td><b><?php echo number_format($seo); ?></b></td>
+                <td><b>-</b></td>
+                </tr>
                            
             <?php }
             $result->free(); $conn->close(); ?>

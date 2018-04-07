@@ -33,7 +33,7 @@
             </select>
             <select class="chonnam" name="chonnam">
              <?php for($i=2016;$i<=$getname;$i++){ ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <option value="<?php echo $i; ?>" <?php if($i == $getname){echo "selected";} ?>><?php echo $i; ?></option>
                 <?php } ?>
             </select>
             <button type="submit" class="btn btn-info btn-xs" name="submit">Xem danh sách</button>
@@ -111,37 +111,37 @@
                    <td><?php echo number_format(round($row['tongchiphi']/$row['tongsokhachtuvan'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['hieuqua'])); ?></td>
                    <td><?php echo number_format(round($row['tongchiphi']/$row['dathen'])); ?></td>
-                   <td><?php if($row['denkham'] == ""){ 
+                   <td><?php /* if($row['denkham'] == ""){ 
                        $cuoicc = $row['tongchiphi']; 
                        echo number_format(round($row['tongchiphi'])); 
                        } else { 
                            $cuoicc = round($row['tongchiphi']/$row['denkham']); 
                            echo number_format(round($row['tongchiphi']/$row['denkham']));
-                        } ?></td>
+                        } */ ?>-</td>
                    <td><a style="color:blue;font-weight:bolder;" href="index.php?page=editform&idbangnhap=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
                     </tr>
             
-                           <?php $sumgdk= $sumgdk+$cuoicc; } ?>
+                    <?php /* $sumgdk= $sumgdk+$cuoicc; */ } ?>
                            
                                    <tr>
-                <td>Tổng</td>
-                <td><?php echo number_format($sum); ?></td>
-                <td><?php echo number_format($sumht); ?></td>
-                <td><?php echo number_format($sumnc); ?></td>
-                <td><?php echo number_format($sumun); ?></td>
-                <td><?php echo number_format($sumts); ?></td>
-                <td><?php echo number_format($sumhq); ?></td>
-                <td><?php echo number_format($sumkhq); ?></td>
-                <td style="background-color:yellow"><?php echo number_format($sumdh); ?></td>
-                <td><?php echo number_format($sumdk); ?></td>
-                <td><?php echo number_format($sumgc); ?></td>
-                <td>-</td>
-                <td><?php echo number_format($sumbqc); ?></td>
-                <td><?php echo number_format($sumch); ?></td>
-                <td><?php echo number_format($sumtv); ?></td>
-                <td><?php echo number_format($sumchq); ?></td>                     
-                <td><?php echo number_format($sumgdh); ?></td>
-                <td><?php echo number_format($sumgdk); ?></td>
+                <td><b>Tổng</b></td>
+                <td><b><?php echo number_format($sum); ?></b></td>
+                <td><b><?php echo number_format($sumht); ?></b></td>
+                <td><b><?php echo number_format($sumnc); ?></b></td>
+                <td><b><?php echo number_format($sumun); ?></b></td>
+                <td><b><?php echo number_format($sumts); ?></b></td>
+                <td><b><?php echo number_format($sumhq); ?></b></td>
+                <td><b><?php echo number_format($sumkhq); ?></b></td>
+                <td style="background-color:yellow"><b><?php echo number_format($sumdh); ?></b></td>
+                <td><b><?php echo number_format($sumdk); ?></b></td>
+                <td><b><?php echo number_format($sumgc); ?></b></td>
+                <td><b>-</td>
+                <td><b><?php echo number_format($sum/$sumnc); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumht); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumts); ?></b></td>
+                <td><b><?php echo number_format($sum/$sumun); ?></b></td>                     
+                <td><b><?php echo number_format($sum/$sumdh); ?></b></td>
+                <td><b>-</td>
                 <td></td>
                 </tr>
                   
