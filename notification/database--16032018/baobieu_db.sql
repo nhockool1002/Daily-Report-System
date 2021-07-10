@@ -1807,17 +1807,22 @@ INSERT INTO
 VALUES
   (
     4,
-    'nhockool1002',
-    '6ac66b5cb3d198e4587a747c13ac3c9d',
+    'root',
+    '96e79218965eb72c92a549dd5a330112',
     1
   ),
   (
     5,
     'admin',
-    '0c99e18ca735e4939d634af0b5cc0d39',
+    '96e79218965eb72c92a549dd5a330112',
     1
   ),
-  (6, 'mayo', 'eaf2b43dac7b97e2bc1da40485d71f1b', 1);
+  (
+    6,
+    'backup',
+    '96e79218965eb72c92a549dd5a330112',
+    1
+  );
 -- --------------------------------------------------------
   --
   -- Table structure for table `nguonden`
