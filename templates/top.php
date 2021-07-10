@@ -2,7 +2,7 @@
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-4 branding">
-                            <p class="brandtit">hệ thống báo biểu</p>
+                            <p class="brandtit">Daily Reporting System</p>
                             <p class="branddesc">Close the day with clarity</p>
                         </div>
                         <div class="col-sm-8 menutop">

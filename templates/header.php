@@ -1,6 +1,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ thống báo biểu :: Bảng quản trị | Reports System :: Backend</title>
+    <title>Daily Reporting System :: Bảng quản trị | Reports System :: Backend</title>
     <link rel="icon" href="img/fav.ico">
     <!-- BOOTSTRAP 3.7 -->
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">

@@ -1,8 +1,8 @@
 <?php
 $hostname = 'localhost';
 $username = 'root'; 
-$password = '';
-$dbname = 'htbb26410';
+$password = 'root';
+$dbname = 'htbb';
 define('HOSTNAME',$hostname);
 define('USERNAME',$username);
 define('PASSWORD',$password);

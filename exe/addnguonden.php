@@ -12,7 +12,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Xử lý :: Lưu dữ liệu vào hệ thống - Hệ thống báo biểu :: Bảng quản trị</title>
+        <title>Xử lý :: Lưu dữ liệu vào hệ thống - Daily Reporting System :: Bảng quản trị</title>
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
